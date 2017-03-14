@@ -1,0 +1,63 @@
+#canvas {
+    width: 70%;
+    min-height: 20px;
+    border: solid 1px darkslategray;
+    float: right;
+    height: 300px;
+    margin-right: 2em;
+}
+
+.draggable {
+    background-color: blueviolet;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    float: left;
+    border: solid 1px darkviolet;
+    margin-bottom: 1em;
+}
+
+form p {
+    clear: both;
+}
+
+ul {
+    padding-left: 0;
+}
+li {
+    list-style: none;
+    display: block;
+    margin: auto;
+}
+
+.minitiles {
+    margin-left: 25%;
+    font-size: 0.75em;
+    height: 6.5em;
+}
+
+form {
+    width: 20%;
+    background: aliceblue;
+    padding: 1em;
+    margin: 0px;
+    float: left;
+}
+
+.minitiles .draggable {
+    height: 10px;
+    width: 10px;
+    float: left;
+    margin: 1em 0.25em;
+}
+
+.minitiles p {
+    float: left;
+    margin-right: 1em;
+}
+
+.boardtile {
+    width: 30px !important;
+    height: 30px !important;
+    background-color: lightgray;
+}
