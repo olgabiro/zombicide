@@ -44,52 +44,15 @@ $(document).ready(function () {
             } else {
                 ui.draggable.hide();
             }
-            
         }
     });    
-    $("#canvas").sortable();
+
     $("#canvas").droppable({
         drop: function (event, ui) {
             var canvasCoords = $(this).offset(),
                 coords = findCoordinates(event.pageX, event.pageY, canvasCoords.left, canvasCoords.top);
             ui.draggable.addClass("boardtile").css("left", coords.x).css("top", coords.y);
-//            removeClass("ui-draggable-handle").removeClass("ui-draggable")
             $(this).append(ui.draggable);
-        }
-    });
-    
-    $('#part1').attr("checked", true);
-    $(".rue-morgue").hide();
-    $(".prison-outbreak").hide();
-    
-    $(".zombicide div").addClass("zombicide");
-    $(".rue-morgue div").addClass("rue-morgue");
-    $(".prison-outbreak div").addClass("prison-outbreak");
-    
-    $(".tiles :checkbox").change(function () {
-        var className = $(this).attr("id"),
-            elements = $("." + parts[className]);
-        if ($(this).is(":checked")) {
-            elements.each(function () {
-                if (!$(this).hasClass("hidden")) {
-                    $(this).show();
-                }
-            });
-        } else {
-            elements.hide();
-        }
-    });
-    
-    $("sidebar .menu").hide().addClass("hidden");
-    
-    $("sidebar p").click(function () {
-        var nextMenu = $(this).next();
-        if (nextMenu.hasClass("hidden")) {
-            nextMenu.show();
-            nextMenu.removeClass("hidden");
-        } else {
-            nextMenu.hide();
-            nextMenu.addClass("hidden");
         }
     });
 });
