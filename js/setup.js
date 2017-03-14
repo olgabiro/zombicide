@@ -1,5 +1,12 @@
 $(document).ready(function () {
     "use strict";
+    
+    var parts = {
+            "part1" : "zombicide",
+            "part2" : "prison-outbreak",
+            "part3" : "rue-morgue"
+        };
+    
     $('#part1').attr("checked", true);
     $(".rue-morgue").hide();
     $(".prison-outbreak").hide();
@@ -8,7 +15,7 @@ $(document).ready(function () {
     $(".rue-morgue div").addClass("rue-morgue");
     $(".prison-outbreak div").addClass("prison-outbreak");
     
-     $(".tiles :checkbox").change(function () {
+    $(".tiles :checkbox").change(function () {
         var className = $(this).attr("id"),
             elements = $("." + parts[className]);
         if ($(this).is(":checked")) {
