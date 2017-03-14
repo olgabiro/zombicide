@@ -165,7 +165,7 @@ $(document).ready(function () {
     
     $.each(zombicide.tiles, function (index, value) {
         var id_name = value.replace("/", "-");
-        var object = '<div class="draggable zombicide" id="' + id_name + '"><img src="' + value + '"></div>';
+        var object = '<div class="draggable zombicide tile" id="' + id_name + '"><img src="' + value + '"></div>';
         $(".minitiles").append(object);
     });
     
@@ -207,7 +207,7 @@ $(document).ready(function () {
     
     $.each(prison_outbreak.tiles, function (index, value) {
         var id_name = value.replace("/", "-");
-        var object = '<div class="draggable prison-outbreak" id="' + id_name + '"><img src="' + value + '"></div>';
+        var object = '<div class="draggable prison-outbreak tile" id="' + id_name + '"><img src="' + value + '"></div>';
         $(".minitiles").append(object);
     });
 });

@@ -14,11 +14,17 @@
 
 div.menu {
     margin-bottom: 1em;
-    overflow: hidden;
+    float: left;
+    width: 100%;
+}
+
+.menu .draggable {
+    z-index: 20;
 }
 
 form p {
     clear: both;
+    margin: 0.5em 0;
 }
 
 ul {

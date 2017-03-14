@@ -23,7 +23,7 @@ $(document).ready(function () {
         var lastX = 0,
             lastY = 0;
         
-        $("#canvas .draggable").each(function () {
+        $("#canvas .boardtile").each(function () {
             var x = tiles[$(this).attr("id")].x - lastX,
                 y = tiles[$(this).attr("id")].y - lastY;
             
@@ -49,20 +49,22 @@ $(document).ready(function () {
     });
 
     $("#canvas").droppable({
-        drop: function (event, ui) {
-            var canvasCoords = $(this).offset(),
-                coords = findCoordinates(event.pageX, event.pageY, canvasCoords.left, canvasCoords.top);
-            ui.draggable.addClass("boardtile").css("left", coords.x).css("top", coords.y);
-            tiles[ui.draggable.attr("id")] = coords;
-            $(this).append(ui.draggable);
-            updateBoard();
+        drop: function (event, ui) {            
+            if (ui.draggable.hasClass("tile")) {
+                var canvasCoords = $(this).offset(),
+                    coords = findCoordinates(event.pageX, event.pageY, canvasCoords.left, canvasCoords.top);
+                ui.draggable.addClass("boardtile");
+                $(this).append(ui.draggable);
+                tiles[ui.draggable.attr("id")] = coords;
+                updateBoard();
+            }
         }
     });
     
     $("div.menu").droppable({
         drop: function (event, ui) {
-            ui.draggable.removeClass("boardtile").css("left", "initial").css("top", "initial");
-            $(this).append(ui.draggable);
+            console.log("ten kod sie wykonuje!");
+            ui.draggable.css("left", 0).css("top", 0);
         }
     });
 });
