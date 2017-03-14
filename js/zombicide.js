@@ -1,31 +1,40 @@
 $(document).ready(function () {
     "use strict";
     
-    var tiles = {
-            "season1" : ["1A", "1B", "1C", "1D"],
-            "season2": [],
-            "season3": ["1R", "2R", "3R", "4R", "5R", "6R", "7R", "8R"]
-        },
-        parts = {
-            "part1" : "zombicide",
-            "part2" : "prison-outbreak",
-            "part3" : "rue-morgue"
-        },
-        tileSize = 30;
+    var tiles = {},
+        tileSize = 200;
     
     function findCoordinates(x, y, startX, startY) {
         var resultX = 0,
             resultY = 0;
 
-        while (resultX + startX + tileSize + 2 < x) {
-            resultX += tileSize + 2;
+        while (resultX + startX + tileSize < x) {
+            resultX += tileSize;
         }
 
-        while (resultY + startY + tileSize + 2 < y) {
-            resultY += tileSize + 2;
+        while (resultY + startY + tileSize < y) {
+            resultY += tileSize;
         }
 
         return {x : resultX, y : resultY};
+    }
+    
+    function updateBoard() {
+        var lastX = 0,
+            lastY = 0;
+        
+        $("#canvas .draggable").each(function () {
+            var x = tiles[$(this).attr("id")].x - lastX,
+                y = tiles[$(this).attr("id")].y - lastY;
+            
+            $(this).css("left", x).css("top", y);
+            lastX += tileSize;
+            
+            if (lastX >= $("#canvas").css("width")) {
+                lastX = 0;
+                lastY += tileSize;
+            }
+        });
     }
     
     $(".draggable").draggable({
@@ -35,23 +44,24 @@ $(document).ready(function () {
     $(".minitiles").droppable({
         drop: function (event, ui) {
             ui.draggable.removeClass("boardtile").css("left", "initial").css("top", "initial").css("right", "initial");
-            if (ui.draggable.hasClass("zombicide")) {
-                $(this).children(".zombicide").append(ui.draggable);
-            } else if (ui.draggable.hasClass("prison-outbreak")) {
-                $(this).children(".prison-outbreak").append(ui.draggable);
-            } else if (ui.draggable.hasClass(".rue-morgue")) {
-                $(this).children(".rue-morgue").append(ui.draggable);
-            } else {
-                ui.draggable.hide();
-            }
+            $(this).append(ui.draggable);
         }
-    });    
+    });
 
     $("#canvas").droppable({
         drop: function (event, ui) {
             var canvasCoords = $(this).offset(),
                 coords = findCoordinates(event.pageX, event.pageY, canvasCoords.left, canvasCoords.top);
             ui.draggable.addClass("boardtile").css("left", coords.x).css("top", coords.y);
+            tiles[ui.draggable.attr("id")] = coords;
+            $(this).append(ui.draggable);
+            updateBoard();
+        }
+    });
+    
+    $("div.menu").droppable({
+        drop: function (event, ui) {
+            ui.draggable.removeClass("boardtile").css("left", "initial").css("top", "initial");
             $(this).append(ui.draggable);
         }
     });
