@@ -23,17 +23,19 @@ $(document).ready(function () {
         var lastX = 0,
             lastY = 0;
         
-        $("#canvas .boardtile").each(function () {
+        $("#canvas .boardtile").each(function (index) {
             var x = tiles[$(this).attr("id")].x - lastX,
                 y = tiles[$(this).attr("id")].y - lastY;
             
             $(this).css("left", x).css("top", y);
             lastX += tileSize;
             
-            if (lastX >= $("#canvas").css("width")) {
+            console.log($("#canvas").css("width"), lastX)
+            if (lastX + tileSize >= parseInt($("#canvas").css("width"))) {
                 lastX = 0;
                 lastY += tileSize;
             }
+            console.log($(this).attr("id"), x, y)
         });
     }
     
