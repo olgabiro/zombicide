@@ -28,16 +28,14 @@ $(document).ready(function () {
         });
         
         $("#canvas .boardtile").each(function (index) {
-            var x = tiles[$(this).attr("id")].x - lastX,
-                y = tiles[$(this).attr("id")].y - lastY;
+            var canvasWidth = parseInt($("#canvas").css("width")),
+                rowLength = canvasWidth - (canvasWidth % tileSize),
+                baseX = (index * tileSize) % rowLength,
+                baseY = Math.floor((index * tileSize) / rowLength) * tileSize,
+                x = tiles[$(this).attr("id")].x - baseX,
+                y = tiles[$(this).attr("id")].y - baseY;
             
             $(this).css("left", x).css("top", y);
-            lastX += tileSize;
-            
-            if (lastX + tileSize >= parseInt($("#canvas").css("width"))) {
-                lastX = 0;
-                lastY += tileSize;
-            }
         });
     }
     
