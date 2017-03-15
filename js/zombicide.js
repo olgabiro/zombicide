@@ -78,7 +78,9 @@ $(document).ready(function () {
             
             if ($(this)[0] !== ui.draggable.parent()[0]) {
                 if (!(ui.draggable.hasClass("tile"))) {
-                    ui.draggable.clone().css("position", "absolute").css("left", event.pageX).css("top", event.pageY).appendTo($(this));
+                    var x = ui.position.left - $(this).offset().left,
+                        y = ui.position.top;
+                    ui.draggable.clone().css("position", "absolute").css("left", x).css("top", y).appendTo($(this));
                     $(".draggable").draggable({
                         opacity: 0.35
                     });

@@ -1,10 +1,9 @@
 #canvas {
-    width: 80%;
-    min-width: 625px;
-    min-height: 20px;
+    min-height: 1000px;
     border: solid 1px darkslategray;
-    float: left;
-    height: 1600px;
+    position: absolute;
+    left: 200px;
+    right: 2em;
 }
 
 .draggable {
@@ -41,15 +40,15 @@ li {
     font-size: 0.75em;
     height: 12em;
     width: 100%;
+    box-sizing: border-box;
 }
 
 form {
-    width: 15%;
-    min-width: 122px;
+    width: 125px;
     background: aliceblue;
     padding: 1em;
     margin: 0px;
-    float: left;
+    position: absolute;
 }
 
 .minitiles .draggable {
