@@ -43,6 +43,7 @@ $(document).ready(function () {
     });
     
     $(".menu .draggable").draggable("option", "helper", "clone");
+    $(".draggable.boardtiles").draggable("option", "stack", ".draggable.boardtiles");
     
     $(".minitiles").droppable({
         drop: function (event, ui) {
@@ -50,24 +51,39 @@ $(document).ready(function () {
             $(this).append(ui.draggable);
         }
     });
+    
+    function updateCoords(name, coords) {
+        if (name in tiles) {
+            $.each(tiles, function (index, value) {
+                if (value.x === coords.x && value.y === coords.y) {
+                    tiles[index] = tiles[name];
+                    tiles[name] = coords;
+                    return;
+                }
+            });
+        }
+        
+        tiles[name] = coords;
+    }
 
     $("#canvas").droppable({
-        drop: function (event, ui) {            
+        drop: function (event, ui) {
             var canvasCoords = $(this).offset(),
                 coords = findCoordinates(event.pageX, event.pageY, canvasCoords.left, canvasCoords.top);
             if (ui.draggable.hasClass("tile")) {
                 ui.draggable.addClass("boardtile");
-                tiles[ui.draggable.attr("id")] = coords;
+                updateCoords(ui.draggable.attr("id"), coords);
+                
             }
             
-            if ($(this)[0] != ui.draggable.parent()[0]) {
+            if ($(this)[0] !== ui.draggable.parent()[0]) {
                 if (!(ui.draggable.hasClass("tile"))) {
                     ui.draggable.clone().css("position", "fixed").css("left", event.pageX).css("top", event.pageY).appendTo($(this));
                     $(".draggable").draggable({
-                       opacity: 0.35 
+                        opacity: 0.35
                     });
                 } else {
-                    $(this).append(ui.draggable);    
+                    $(this).append(ui.draggable);
                 }
             }
             
@@ -77,13 +93,13 @@ $(document).ready(function () {
     
     $("div.menu").droppable({
         drop: function (event, ui) {
-            ui.draggable.remove();            
+            ui.draggable.remove();
         }
     });
     
     $("#canvas").on("dblclick", ".draggable", function () {
         var name = $(this).attr("id");
-        if (!(name in rotation)){
+        if (!(name in rotation)) {
             rotation[name] = 0;
         }
         rotation[name] = (rotation[name] + 90) % 360;
