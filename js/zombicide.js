@@ -2,7 +2,8 @@ $(document).ready(function () {
     "use strict";
     
     var tiles = {},
-        tileSize = 200;
+        tileSize = 200,
+        rotation = {};
     
     function findCoordinates(x, y, startX, startY) {
         var resultX = 0,
@@ -30,12 +31,10 @@ $(document).ready(function () {
             $(this).css("left", x).css("top", y);
             lastX += tileSize;
             
-            console.log($("#canvas").css("width"), lastX)
             if (lastX + tileSize >= parseInt($("#canvas").css("width"))) {
                 lastX = 0;
                 lastY += tileSize;
             }
-            console.log($(this).attr("id"), x, y)
         });
     }
     
@@ -65,8 +64,16 @@ $(document).ready(function () {
     
     $("div.menu").droppable({
         drop: function (event, ui) {
-            console.log("ten kod sie wykonuje!");
             ui.draggable.css("left", 0).css("top", 0);
         }
+    });
+    
+    $(".draggable").dblclick(function () {
+        var name = $(this).attr("id");
+        if (!(name in rotation)){
+            rotation[name] = 0;
+        }
+        rotation[name] = (rotation[name] + 90) % 360;
+        $(this).find("img").css("transform", "rotate(" + rotation[name] + "deg)");
     });
 });
