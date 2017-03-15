@@ -21,8 +21,7 @@ $(document).ready(function () {
     }
     
     function updateBoard() {
-        var lastX = 0,
-            lastY = 0;
+        
         $("#canvas .draggable").not(".boardtile").each(function () {
             $(this).appendTo("#canvas");
         });
