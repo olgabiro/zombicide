@@ -1,3 +1,7 @@
+body {
+    background-image: url(ep_naturalwhite.png);
+}
+
 #canvas {
     min-height: 1000px;
     border: solid 1px darkslategray;
