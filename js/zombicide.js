@@ -97,7 +97,7 @@ $(document).ready(function () {
         }
     });
     
-    $("div.menu").droppable({
+    $("form").droppable({
         drop: function (event, ui) {
             if (ui.draggable.hasClass("on-board")) {
                 ui.draggable.remove();
