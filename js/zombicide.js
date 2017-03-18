@@ -42,13 +42,15 @@ $(document).ready(function () {
         opacity: 0.35
     });
     
-    $(".menu .draggable").draggable("option", "helper", "clone");
+    $(".menu .draggable, .minitiles .draggable").draggable("option", "helper", "clone");
     $(".draggable.boardtiles").draggable("option", "stack", ".draggable.boardtiles");
     
     $(".minitiles").droppable({
         drop: function (event, ui) {
-            ui.draggable.removeClass("boardtile").css("left", "initial").css("top", "initial").css("right", "initial");
-            $(this).append(ui.draggable);
+            var name = ui.draggable.attr("id");
+            ui.draggable.remove();
+            console.log(name, "#" + name);
+            $("#" + name).parent().show();
         }
     });
     
@@ -71,7 +73,6 @@ $(document).ready(function () {
             var canvasCoords = $(this).offset(),
                 coords = findCoordinates(event.pageX, event.pageY, canvasCoords.left, canvasCoords.top);
             if (ui.draggable.hasClass("tile")) {
-                ui.draggable.addClass("boardtile");
                 updateCoords(ui.draggable.attr("id"), coords);
                 
             }
@@ -81,12 +82,14 @@ $(document).ready(function () {
                     var x = ui.position.left - $(this).offset().left,
                         y = ui.position.top;
                     ui.draggable.clone().css("position", "absolute").css("left", x).css("top", y).appendTo($(this));
-                    $(".draggable").draggable({
-                        opacity: 0.35
-                    });
+                    
                 } else {
-                    $(this).append(ui.draggable);
+                    ui.draggable.clone().addClass("boardtile").appendTo($(this));
+                    ui.draggable.parent().hide();
                 }
+                $(".draggable").draggable({
+                    opacity: 0.35
+                });
             }
             
             updateBoard();
