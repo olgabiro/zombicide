@@ -43,15 +43,16 @@ $(document).ready(function () {
     });
     
     $(".menu .draggable, .minitiles .draggable").draggable("option", "helper", "clone");
-    $(".draggable.boardtiles").draggable("option", "stack", ".draggable.boardtiles");
     
     $(".minitiles").droppable({
         drop: function (event, ui) {
-            var name = ui.draggable.attr("id");
-            ui.draggable.remove();
-            $("#" + name).parent().show();
-            console.log(name, tiles);
-            updateBoard();
+            if (ui.draggable.hasClass("boardtile")) {
+                var name = ui.draggable.attr("id");
+                ui.draggable.remove();
+                $("#" + name).parent().show();
+                console.log(name, tiles);
+                updateBoard();
+            }
         }
     });
     
@@ -82,7 +83,7 @@ $(document).ready(function () {
                 if (!(ui.draggable.hasClass("tile"))) {
                     var x = ui.position.left - $(this).offset().left,
                         y = ui.position.top;
-                    ui.draggable.clone().css("position", "absolute").css("left", x).css("top", y).appendTo($(this));
+                    ui.draggable.clone().addClass("on-board").css("position", "absolute").css("left", x).css("top", y).appendTo($(this));
                     
                 } else {
                     ui.draggable.clone().addClass("boardtile").appendTo($(this));
@@ -98,7 +99,9 @@ $(document).ready(function () {
     
     $("div.menu").droppable({
         drop: function (event, ui) {
-            ui.draggable.remove();
+            if (ui.draggable.hasClass("on-board")) {
+                ui.draggable.remove();
+            }
         }
     });
     
