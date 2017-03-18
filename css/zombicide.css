@@ -3,11 +3,12 @@ body {
 }
 
 #canvas {
-    min-height: 1000px;
-    border: solid 1px darkslategray;
+    min-height: 500px;
+    background-color: rgba(169, 169, 169, 0.2);
     position: absolute;
     left: 200px;
     right: 2em;
+    margin-bottom: 2em;
 }
 
 .draggable {
