@@ -72,10 +72,6 @@ $(document).ready(function () {
         drop: function (event, ui) {
             var canvasCoords = $(this).offset(),
                 coords = findCoordinates(event.pageX, event.pageY, canvasCoords.left, canvasCoords.top);
-            if (ui.draggable.hasClass("tile")) {
-                updateCoords(ui.draggable.attr("id"), coords);
-                
-            }
             
             if ($(this)[0] !== ui.draggable.parent()[0]) {
                 if (!(ui.draggable.hasClass("tile"))) {
@@ -86,12 +82,15 @@ $(document).ready(function () {
                 } else {
                     ui.draggable.clone().addClass("boardtile").appendTo($(this));
                     ui.draggable.parent().hide();
+                    updateCoords(ui.draggable.attr("id"), coords);
                 }
                 $(".draggable").draggable({
                     opacity: 0.35
                 });
+            } else if (ui.draggable.hasClass("tile")) {
+                updateCoords(ui.draggable.attr("id"), coords);
+                $(this).append(ui.draggable);
             }
-            
             updateBoard();
         }
     });

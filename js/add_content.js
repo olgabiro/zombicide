@@ -136,7 +136,7 @@ $(document).ready(function () {
     $.each(zombicide.others, function (index, value) {
         var id_name = value.replace(/\/|\./g, "-");
         var object = '<div class="draggable zombicide" id="' + id_name + '"><img src="' + value + '"></div>';
-        $("div.others").append(object);
+        $("div.other").append(object);
     });
     
     $.each(zombicide.spawns, function (index, value) {
