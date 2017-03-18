@@ -110,4 +110,8 @@ $(document).ready(function () {
         rotation[name] = (rotation[name] + 90) % 360;
         $(this).find("img").css("transform", "rotate(" + rotation[name] + "deg)");
     });
+    
+    $(window).resize(function () {
+        updateBoard();
+    });
 });
