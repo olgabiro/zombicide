@@ -25,7 +25,14 @@ $(document).ready(function () {
                 }
             });
         } else {
-            elements.hide();
+            elements.each(function () {
+                if ($(this).hasClass("on-board") || $(this).hasClass("boardtile")) {
+                    $(this).remove();
+                } else {
+                    $(this).hide();
+                }
+                
+            });
         }
     });
     
