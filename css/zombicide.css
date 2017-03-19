@@ -13,7 +13,7 @@ body {
 
 .draggable {
     float: left;
-    margin-left: 2px;
+    margin-left: 4px;
 }
 
 div.menu {
@@ -50,9 +50,9 @@ li {
 
 form {
     width: 125px;
-    background: aliceblue;
+    background: rgba(169, 169, 169, 0.45);
     padding: 1em;
-    margin: 0px;
+    margin: 0 0 0 1em;
     position: absolute;
 }
 
