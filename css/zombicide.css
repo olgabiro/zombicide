@@ -78,3 +78,60 @@ form {
     width: 200px;
     height: 200px;
 }
+
+.scenario-title {
+    font-family: 'OpenSansExtraBold';
+    color: orange;
+    font-size: 1.5em;
+}
+
+.scenario-category {
+    font-size: 0.5em;
+    color: gray;
+    margin-bottom: 1em;
+}
+
+.scenario-story {
+    font-family: 'GorriSans';
+    font-size: 0.8em;
+}
+
+.scenario-subtitle {
+    font-family: 'Crackhouse';
+    color: gray;
+    font-size: 2em;
+}
+
+.scenario-text {
+    font-family: 'OpenSans';
+    font-size: 0.9em;
+}
+
+.scenario-text strong {
+    font-family: 'OpenSansBold';
+}
+
+@font-face {
+    font-family: 'Crackhouse';
+    src: url('fonts/Crackhouse.ttf');
+}
+
+@font-face {
+    font-family: 'GorriSans';
+    src: url('fonts/GorriSans.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('fonts/open-sans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansExtraBold';
+    src: url('fonts/open-sans/OpenSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('fonts/open-sans/OpenSans-Bold.ttf');
+}
