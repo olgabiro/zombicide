@@ -2,18 +2,122 @@ body {
     background-image: url(ep_naturalwhite.png);
 }
 
+form#title {
+    left: 11.5em;
+    width: 24em;
+    background: none;
+    position: inherit;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    float: left;
+    font-size: 1.5em;
+}
+
+form#title * {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 0.75em;
+}
+
+form#title input {
+    width: 15em;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: orange;
+    padding-left: 0.5em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+}
+
+form#title input.title::placeholder {
+    color: orange;
+    opacity: 0.4;
+}
+
+form#title input.category {
+    width: 1.5em;
+    color: gray;
+    font-size: 0.75em;
+    margin-right: 0.4em;
+}
+
+form#title input.category::placeholder {
+    color: gray;
+}
+
+form#title label {
+    font-size: 0.75em;
+    margin-top: 1px;
+}
+
+form#title select {
+    padding: 0.3em;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    margin-right: 2em;
+}
+
+form#title button {
+    margin-left: 13em;
+    border: none;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+#editor {
+    margin-left: 200px;
+}
+
+form#description {
+    margin: 0;
+    background: none;
+    width: 50em;
+    padding: 0;
+    margin-top: 1em;
+}
+
+form#description * {
+    float: left;
+    margin-bottom: 0.5em;
+}
+
+form#description label {
+    clear: left;
+    width: 3em;
+    margin-top: 0.3em;
+    margin-right: 0.5em;
+    text-align: right;
+}
+
+form#description textarea {
+    padding-left: 0.5em;
+}
+
+div#title-bar {
+    overflow: hidden;
+}
+
 #canvas {
     min-height: 500px;
     background-color: rgba(169, 169, 169, 0.2);
-    position: absolute;
-    left: 200px;
-    right: 2em;
     margin-bottom: 2em;
+    clear: both;
 }
 
 .draggable {
     float: left;
     margin-left: 4px;
+    cursor: all-scroll;
+}
+
+.on-board {
+    margin: 0;
+}
+
+.on-board img {
+    display: block;
 }
 
 div.menu {
@@ -31,21 +135,29 @@ form p {
     margin: 0.5em 0;
 }
 
+form p.category {
+    font-size: 1em;
+    cursor: pointer;
+}
+
 ul {
     padding-left: 0;
 }
+
 li {
     list-style: none;
     display: block;
     margin: auto;
+    font-family: 'OpenSans';
+    font-size: 0.8em;
 }
 
 .minitiles {
     padding: 0 2em;
     font-size: 0.75em;
-    height: 12em;
-    width: 100%;
+    height: 14em;
     box-sizing: border-box;
+    margin-left: 200px;
 }
 
 form {
@@ -79,36 +191,46 @@ form {
     height: 200px;
 }
 
-.scenario-title {
+.title {
     font-family: 'OpenSansExtraBold';
     color: orange;
     font-size: 1.5em;
 }
 
-.scenario-category {
+.category {
+    font-family: 'OpenSansExtraBold';
     font-size: 0.5em;
     color: gray;
     margin-bottom: 1em;
 }
 
-.scenario-story {
+.story {
     font-family: 'GorriSans';
     font-size: 0.8em;
 }
 
-.scenario-subtitle {
+.subtitle {
     font-family: 'Crackhouse';
     color: gray;
     font-size: 2em;
 }
 
-.scenario-text {
+.text {
     font-family: 'OpenSans';
     font-size: 0.9em;
 }
 
-.scenario-text strong {
+.text strong {
     font-family: 'OpenSansBold';
+}
+
+div.scenario {
+    visibility: hidden;
+    display: none;
+}
+
+input[type="text"] {
+    width: 9em;
 }
 
 @font-face {

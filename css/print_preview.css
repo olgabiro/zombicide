@@ -1,0 +1,94 @@
+body {
+    margin 1.2cm;
+}
+sidebar, .minitiles, form {
+    display: none;
+}
+
+.scenario {
+    visibility: visible;
+}
+
+@font-face {
+    font-family: 'Crackhouse';
+    src: url('fonts/Crackhouse.ttf');
+}
+
+@font-face {
+    font-family: 'GorriSans';
+    src: url('fonts/GorriSans.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('fonts/open-sans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansExtraBold';
+    src: url('fonts/open-sans/OpenSans-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('fonts/open-sans/OpenSans-Bold.ttf');
+}
+
+.title {
+    font-family: 'OpenSansExtraBold';
+    color: orange;
+    font-size: 1.5em;
+}
+
+.category {
+    font-size: 0.5em;
+    color: gray;
+    margin-bottom: 1em;
+}
+
+.story {
+    font-family: 'GorriSans';
+    font-size: 0.8em;
+}
+
+.subtitle {
+    font-family: 'Crackhouse';
+    color: gray;
+    font-size: 2em;
+}
+
+.text {
+    font-family: 'OpenSans';
+    font-size: 0.9em;
+}
+
+.text strong {
+    font-family: 'OpenSansBold';
+}
+
+.boardtile {
+    background-color: lightgray;
+    margin: 0;
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+
+.boardtile img {
+    width: 200px;
+    height: 200px;
+}
+
+#canvas {
+    min-height: 500px;
+    background-color: rgba(169, 169, 169, 0.2);
+    margin: 1em;
+}
+
+.scenario {
+    clear: both;
+}
+
+#editor {
+    margin-left: 2em;
+}

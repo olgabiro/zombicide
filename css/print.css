@@ -1,0 +1,21 @@
+@media print {
+    @page {
+        margin: 0;   
+    }
+    
+    body {
+        margin 1.2cm;
+    }
+    sidebar, .minitiles, form {
+        display: none;
+    }
+    
+    div[class^="scenario"] {
+        visibility: visible;
+    }
+    
+    #canvas {
+        position: inherit;
+        margin-left: 3em;
+    }
+}
