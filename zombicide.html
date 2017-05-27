@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/zombicide.css">
         <link rel="stylesheet" href="css/print.css">
+        <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="js/add_content.js"></script>
@@ -13,13 +14,14 @@
     </head>
     <body>
         
-        <a href="#" onclick="changeCSS('css/print_preview.css', 0);">Print preview</a>
+        <a id="print-preview" href="#" onclick="changeCSS('css/print_preview.css', 0);">Print preview</a>
         <a href="#" onclick="changeCSS('css/zombicide.css', 0);">Regular view</a>
+        <button id="print-button" type="button">Print board</button>
         <div class="minitiles"></div>
 
         <sidebar>
             <form>
-                <p class="tiles category">Dostępne kafelki</p>
+                <p class="tiles category"><i class="fa fa-caret-down" aria-hidden="true"></i> Dostępne kafelki</p>
                 <div class="tiles">
                     <ul>
                         <li><input type=checkbox id="part1">Zombicide</li>
@@ -27,19 +29,19 @@
                         <li><input type="checkbox" id="part3">Rue Morgue</li>
                     </ul>
                 </div>
-                <p class="doors category">Drzwi</p>
+                <p class="doors category"><i class="fa fa-caret-right" aria-hidden="true"></i> Drzwi</p>
                 <div class="menu doors"></div>
-                <p class="objectives category">Znaczniki</p>
+                <p class="objectives category"><i class="fa fa-caret-right" aria-hidden="true"></i> Znaczniki</p>
                 <div class="menu objectives"></div>
-                <p class="cars category">Samochody</p>
+                <p class="cars category"><i class="fa fa-caret-right" aria-hidden="true"></i> Samochody</p>
                 <div class="menu cars"></div>
-                <p class="helicopter rue-morgue category">Helikopter</p>
+                <p class="helicopter rue-morgue category"><i class="fa fa-caret-right" aria-hidden="true"></i> Helikopter</p>
                 <div class="menu helicopter rue-morgue"></div>
-                <p class="tents rue-morgue category">Namioty</p>
+                <p class="tents rue-morgue category"><i class="fa fa-caret-right" aria-hidden="true"></i> Namioty</p>
                 <div class="menu tents rue-morgue"></div>
-                <p class="spawns category">Strefy namnażania</p>
+                <p class="spawns category"><i class="fa fa-caret-right" aria-hidden="true"></i> Strefy namnażania</p>
                 <div class="menu spawns"></div>
-                <p class="other category">Inne</p>
+                <p class="other category"><i class="fa fa-caret-right" aria-hidden="true"></i> Inne</p>
                 <div class="menu other"></div>
             </form>
         </sidebar>
@@ -78,20 +80,20 @@
                 <textarea class="text" name="special-rules" rows="5" cols="80"></textarea>
             </form>
 
-            <div id="story" class="scenario story">
-                Our mission began a long time ago.
-            </div>
+            <div id="story" class="scenario story"></div>
             <div class="scenario subtitle">
                 CELE
             </div>
-            <div id="goals" class="scenario text">
-                Some <strong>goals</strong> to achieve.
-            </div>
+            <div id="goals" class="scenario text"></div>
             <div class="scenario subtitle">
                 ZASADY SPECJALNE
             </div>
-            <div id="special-rules" class="scenario text">
+            <div id="special-rules" class="scenario text"></div>
+            
+            <div class="scenario subtitle">
+                Potrzebne elementy
             </div>
+            <div id="needed-elements" class="scenario text"></div>
         </div>
         
         <script>

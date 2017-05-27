@@ -40,10 +40,15 @@ $(document).ready(function () {
     
     $("sidebar p").click(function () {
         var nextMenu = $(this).next();
+        var arrow = $(this).find("i");
         if (nextMenu.hasClass("hidden")) {
+            arrow.removeClass("fa-caret-right");
+            arrow.addClass("fa-caret-down");
             nextMenu.show();
             nextMenu.removeClass("hidden");
         } else {
+            arrow.removeClass("fa-caret-down");
+            arrow.addClass("fa-caret-right");
             nextMenu.hide();
             nextMenu.addClass("hidden");
         }

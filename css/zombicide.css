@@ -233,6 +233,12 @@ input[type="text"] {
     width: 9em;
 }
 
+#print-button {
+    position: absolute;
+    top: 3em;
+    left: 2em;
+}
+
 @font-face {
     font-family: 'Crackhouse';
     src: url('fonts/Crackhouse.ttf');

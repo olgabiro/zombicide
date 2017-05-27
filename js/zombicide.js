@@ -50,8 +50,8 @@ $(document).ready(function () {
                 var name = ui.draggable.attr("id");
                 ui.draggable.remove();
                 $("#" + name).parent().show();
-                console.log(name, tiles);
                 updateBoard();
+                delete tiles[name];
             }
         }
     });
@@ -122,6 +122,7 @@ $(document).ready(function () {
     $("form").droppable({
         drop: function (event, ui) {
             if (ui.draggable.hasClass("on-board")) {
+                delete others[ui.draggable.attr("id")];
                 ui.draggable.remove();
             }
         }
@@ -160,6 +161,7 @@ $(document).ready(function () {
     }
     
     function scaleCanvas(canvasPosition, tileWidth) {
+        console.log("canvasPosition", canvasPosition);
         $('.boardtile img').css("width", tileWidth).css("height", tileWidth);
         $('.boardtile').css("width", tileWidth).css("height", tileWidth);
         updateBoard(tileWidth);
@@ -172,8 +174,6 @@ $(document).ready(function () {
             
             var left = (others[key].x * scale) + canvasPosition.left + padding;
             var top = (others[key].y * scale) + canvasPosition.top + padding;
-            console.log("left: ", left);
-            console.log("top: ", top);
             $("#" + key).css("left",left).css("top", top).width(width).height("auto");
         }
     }
@@ -199,6 +199,16 @@ $(document).ready(function () {
     });
     
     
+    function resizeCanvas(newSize, offset=null) {
+        var canvas = $('#canvas');
+        var canvasSize = findCanvasSize(newSize);
+        canvas.width(canvasSize.x).height(canvasSize.y).css("min-height", "0");
+        if (!offset) {
+            offset = canvas.offset();
+        }
+        scaleCanvas(offset, newSize);
+    }
+    
     $("#hide-canvas").click(function () {
         var canvas = $('#canvas');
         if (canvas.hasClass("minified")) {
@@ -207,15 +217,83 @@ $(document).ready(function () {
             canvas.css("float", "none").css("clear", "both").css("min-height", "500px");
             $(this).text("Zmniejsz planszę");
             scaleCanvas(canvas.position(), tileSize);
+            $(".draggable").draggable("enable");
         }
         else {
             canvas.addClass("minified");
-            var miniSize = tileSize / 4;
-            var canvasSize = findCanvasSize(miniSize);
-            canvas.width(canvasSize.x).height(canvasSize.y).css("padding", "0.5em");
-            canvas.css("float", "left").css("clear", "none").css("min-height", "0");
+            var newSize = tileSize / 4;
+            canvas.css("padding", "0.5em").css("float", "left").css("clear", "none");
+            resizeCanvas(newSize);
             $(this).text("Powiększ planszę");
-            scaleCanvas(canvas.position(), miniSize);
+            $(".draggable").draggable("disable");
         }
+    });
+    
+    function countElements(name) {
+        var result = 0;
+        for (var x in others) {
+            if (x.indexOf(name) != -1) {
+                result++;
+            }
+        }
+        return result;
+    }
+    
+    function listNeededEquipment() {
+        $("#needed-elements").html("");
+        var doors = countElements("doors"),
+            cars = countElements("cars"),
+            objectives = countElements("objectives"),
+            spawns = countElements("spawns");
+        
+        var usedTiles = Object.keys(tiles);
+        
+        var ul = "<ul>";
+        if (doors > 0) {
+            ul += `<li>drzwi: ${doors}`;
+        }
+        if (objectives > 0){
+            ul += `<li>znaczniki celu: ${objectives}`;
+        }
+        if (cars > 0) {
+            ul += `<li>samochody: ${cars}`;
+        }
+        if (spawns > 0) {
+            ul += `<li>strefy namnażania: ${spawns}`;
+        }
+        ul += "</ul>";
+        
+        $("#needed-elements").append(ul);
+        
+        var tilesList = "<p>Użyte kafelki: ";
+        for (var tile in usedTiles) {
+            tilesList += usedTiles[tile];
+            tilesList += ", "
+        }
+        tilesList = tilesList.slice(0, tilesList.lastIndexOf(","));
+        tilesList += "</p>"
+        
+        $("#needed-elements").append(tilesList);    
+    }
+    
+    $("#print-button").click(function () {
+        $("#print-preview").click();
+        if ($("#special-rules").text() == "") {            
+            $("#special-rules").addClass("hidden");
+            $("#special-rules").prev().addClass("hidden");
+        }
+        
+        else {
+            $("#special-rules").removeClass("hidden");
+            $("#special-rules").prev().removeClass("hidden");
+        }
+        var offset = {
+            top: 95,
+            left: 56
+        };
+        resizeCanvas(tileSize / 2, offset);
+        listNeededEquipment();
+        
+        
     });
 });

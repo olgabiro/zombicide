@@ -89,6 +89,10 @@ sidebar, .minitiles, form {
     clear: both;
 }
 
+.hidden {
+    display: none;
+}
+
 #editor {
     margin-left: 2em;
 }

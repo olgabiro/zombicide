@@ -65,15 +65,15 @@ $(document).ready(function () {
             "pictures/prison-outbreak/other/switch-yellow.png"
         ],
         tiles: {
-            "a" : ["pictures/prison-outbreak/tiles/a1.png", "pictures/prison-outbreak/tiles/a2.png"],
-            "b" : ["pictures/prison-outbreak/tiles/b1.png", "pictures/prison-outbreak/tiles/b2.png"],
-            "c" : ["pictures/prison-outbreak/tiles/c1.png", "pictures/prison-outbreak/tiles/c2.png"],
-            "d" : ["pictures/prison-outbreak/tiles/d1.png", "pictures/prison-outbreak/tiles/d2.png"],
-            "e" : ["pictures/prison-outbreak/tiles/e1.png", "pictures/prison-outbreak/tiles/e2.png"],
-            "f" : ["pictures/prison-outbreak/tiles/f1.png", "pictures/prison-outbreak/tiles/f2.png"],
-            "g" : ["pictures/prison-outbreak/tiles/g1.png", "pictures/prison-outbreak/tiles/g2.png"],
-            "h" : ["pictures/prison-outbreak/tiles/h1.png", "pictures/prison-outbreak/tiles/h2.png"],
-            "i" : ["pictures/prison-outbreak/tiles/i1.png", "pictures/prison-outbreak/tiles/i2.png"]
+            "a" : ["pictures/prison-outbreak/tiles/1P.png", "pictures/prison-outbreak/tiles/15P.png"],
+            "b" : ["pictures/prison-outbreak/tiles/2P.png", "pictures/prison-outbreak/tiles/8P.png"],
+            "c" : ["pictures/prison-outbreak/tiles/3P.png", "pictures/prison-outbreak/tiles/12P.png"],
+            "d" : ["pictures/prison-outbreak/tiles/4P.png", "pictures/prison-outbreak/tiles/6P.png"],
+            "e" : ["pictures/prison-outbreak/tiles/5P.png", "pictures/prison-outbreak/tiles/14P.png"],
+            "f" : ["pictures/prison-outbreak/tiles/7P.png", "pictures/prison-outbreak/tiles/11P.png"],
+            "g" : ["pictures/prison-outbreak/tiles/9P.png", "pictures/prison-outbreak/tiles/13P.png"],
+            "h" : ["pictures/prison-outbreak/tiles/10P.png", "pictures/prison-outbreak/tiles/18P.png"],
+            "i" : ["pictures/prison-outbreak/tiles/16P.png", "pictures/prison-outbreak/tiles/17P.png"]
         }
     }, zombicide = {
         cars: [
@@ -103,15 +103,15 @@ $(document).ready(function () {
             "pictures/zombicide/spawns/red.jpg"
         ],
         tiles: {
-            "a" : ["pictures/zombicide/tiles/a-1.jpg", "pictures/zombicide/tiles/a-2.jpg"],
-            "b" : ["pictures/zombicide/tiles/b-1.jpg", "pictures/zombicide/tiles/b-2.jpg"],
-            "c" : ["pictures/zombicide/tiles/c-1.jpg", "pictures/zombicide/tiles/c-2.jpg"],
-            "d" : ["pictures/zombicide/tiles/d-1.jpg", "pictures/zombicide/tiles/d-2.jpg"],
-            "e" : ["pictures/zombicide/tiles/e-1.jpg", "pictures/zombicide/tiles/e-2.jpg"],
-            "f" : ["pictures/zombicide/tiles/f-1.jpg", "pictures/zombicide/tiles/f-2.jpg"],
-            "g" : ["pictures/zombicide/tiles/g-1.jpg", "pictures/zombicide/tiles/g-2.jpg"],
-            "h" : ["pictures/zombicide/tiles/h-1.jpg", "pictures/zombicide/tiles/h-2.jpg"],
-            "i" : ["pictures/zombicide/tiles/i-1.jpg", "pictures/zombicide/tiles/i-2.jpg"]
+            "a" : ["pictures/zombicide/tiles/1B.jpg", "pictures/zombicide/tiles/3B.jpg"],
+            "b" : ["pictures/zombicide/tiles/1C.jpg", "pictures/zombicide/tiles/3C.jpg"],
+            "c" : ["pictures/zombicide/tiles/2B.jpg", "pictures/zombicide/tiles/6B.jpg"],
+            "d" : ["pictures/zombicide/tiles/2C.jpg", "pictures/zombicide/tiles/6C.jpg"],
+            "e" : ["pictures/zombicide/tiles/4B.jpg", "pictures/zombicide/tiles/5B.jpg"],
+            "f" : ["pictures/zombicide/tiles/4C.jpg", "pictures/zombicide/tiles/5C.jpg"],
+            "g" : ["pictures/zombicide/tiles/4D.jpg", "pictures/zombicide/tiles/5D.jpg"],
+            "h" : ["pictures/zombicide/tiles/4E.jpg", "pictures/zombicide/tiles/5E.jpg"],
+            "i" : ["pictures/zombicide/tiles/7B.jpg", "pictures/zombicide/tiles/5F.jpg"]
         }
     };
     
@@ -148,7 +148,7 @@ $(document).ready(function () {
     $.each(zombicide.tiles, function (ind, val) {
         $(".minitiles").append('<div class="zombicide ' + ind + '"></div>');
         $.each(val, function(index, value) {
-            var id_name = value.replace(/\/|\./g, "-");
+            var id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
             var object = '<div class="draggable zombicide tile" id="' + id_name + '"><img src="' + value + '"></div>';
             $(".minitiles .zombicide." + ind).append(object);
         });
@@ -193,7 +193,7 @@ $(document).ready(function () {
     $.each(prison_outbreak.tiles, function (ind, val) {
         $(".minitiles").append('<div class="prison-outbreak ' + ind + '"></div>');
         $.each(val, function(index, value) {
-            var id_name = value.replace(/\/|\./g, "-");
+            var id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
             var object = '<div class="draggable prison-outbreak tile" id="' + id_name + '"><img src="' + value + '"></div>';
             $(".minitiles .prison-outbreak." + ind).append(object);
         });
