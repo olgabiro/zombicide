@@ -2,7 +2,7 @@ $(document).ready(function () {
     "use strict";
     
     var tiles = {},
-        tileSize = 200,
+        tileSize = 160,
         rotation = {},
         others = {};
     
@@ -203,6 +203,9 @@ $(document).ready(function () {
         var canvas = $('#canvas');
         var canvasSize = findCanvasSize(newSize);
         canvas.width(canvasSize.x).height(canvasSize.y).css("min-height", "0");
+        if (newSize == tileSize) {
+            canvas.width("100%").css("min-height", "500px");
+        }
         if (!offset) {
             offset = canvas.offset();
         }
@@ -222,7 +225,7 @@ $(document).ready(function () {
         else {
             canvas.addClass("minified");
             var newSize = tileSize / 4;
-            canvas.css("padding", "0.5em").css("float", "left").css("clear", "none");
+            canvas.css("padding", "0.5em").css("float", "right").css("clear", "none");
             resizeCanvas(newSize);
             $(this).text("Powiększ planszę");
             $(".draggable").draggable("disable");
@@ -276,8 +279,15 @@ $(document).ready(function () {
         $("#needed-elements").append(tilesList);    
     }
     
+    function showScenario() {
+        $(".scenario").css("display", "inherit").css("visibility", "visible");
+    }
+    
+    function hideScenario() {
+        $(".scenario").css("display", "none").css("visibility", "hidden");
+    }
+    
     $("#print-button").click(function () {
-        $("#print-preview").click();
         if ($("#special-rules").text() == "") {            
             $("#special-rules").addClass("hidden");
             $("#special-rules").prev().addClass("hidden");
@@ -287,12 +297,23 @@ $(document).ready(function () {
             $("#special-rules").removeClass("hidden");
             $("#special-rules").prev().removeClass("hidden");
         }
+        
+        if ($("#canvas").hasClass("minified")) {
+            $("#hide-canvas").click();
+        }
+        
+        showScenario();
+        
         var offset = {
-            top: 95,
+            top: 132,
             left: 56
         };
         resizeCanvas(tileSize / 2, offset);
         listNeededEquipment();
+        window.print();
+        
+        hideScenario();
+        resizeCanvas(tileSize);
         
         
     });
