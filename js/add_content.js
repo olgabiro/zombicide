@@ -113,6 +113,68 @@ $(document).ready(function () {
             "h" : ["pictures/zombicide/tiles/4E.jpg", "pictures/zombicide/tiles/5E.jpg"],
             "i" : ["pictures/zombicide/tiles/7B.jpg", "pictures/zombicide/tiles/5F.jpg"]
         }
+    }, rue_morgue = {
+        spawns: [
+            "pictures/rue-morgue/spawns/pink.png",
+            "pictures/rue-morgue/spawns/blue.png",
+            "pictures/rue-morgue/spawns/red.png"
+        ],
+        tents: [
+            "pictures/rue-morgue/tents/rb2.png",
+            "pictures/rue-morgue/tents/rb5.png",
+            "pictures/rue-morgue/tents/rb3.png",
+            "pictures/rue-morgue/tents/rb1.png",
+            "pictures/rue-morgue/tents/r1.png",
+            "pictures/rue-morgue/tents/r2.png",
+            "pictures/rue-morgue/tents/r3.png",
+            "pictures/rue-morgue/tents/rv.png",
+            "pictures/rue-morgue/tents/r4.png",
+            "pictures/rue-morgue/tents/rb4.png",
+            "pictures/rue-morgue/tents/r6.png",
+            "pictures/rue-morgue/tents/r5.png"
+        ],
+        helicopters: [
+            "pictures/rue-morgue/helicopter/helicopter.png",
+            "pictures/rue-morgue/helicopter/crashed.png"
+        ],
+        doors: [
+            "pictures/rue-morgue/doors/pink-closed.png",
+            "pictures/rue-morgue/doors/red-closed.png",
+            "pictures/rue-morgue/doors/red-open.png",
+            "pictures/rue-morgue/doors/blue-open.png",
+            "pictures/rue-morgue/doors/pink-open.png",
+            "pictures/rue-morgue/doors/blue-closed.png"
+        ],
+        objectives: [
+            "pictures/rue-morgue/objectives/pink.png",
+            "pictures/rue-morgue/objectives/blue.png",
+            "pictures/rue-morgue/objectives/red.png"
+        ],
+        others: [
+            "pictures/rue-morgue/other/locator_2.png",
+            "pictures/rue-morgue/other/locator_6.png",
+            "pictures/rue-morgue/other/trigger_off.png",
+            "pictures/rue-morgue/other/locator_4.png",
+            "pictures/rue-morgue/other/exit.png",
+            "pictures/rue-morgue/other/start.png",
+            "pictures/rue-morgue/other/helicopter_stairs.png",
+            "pictures/rue-morgue/other/noise.png",
+            "pictures/rue-morgue/other/locator_5.png",
+            "pictures/rue-morgue/other/locator_1.png",
+            "pictures/rue-morgue/other/trigger_on.png",
+            "pictures/rue-morgue/other/locator_3.png"
+        ],
+        tiles: {
+            "a": ["pictures/rue-morgue/tiles/1R.png", "pictures/rue-morgue/tiles/1V.png"],
+            "b": ["pictures/rue-morgue/tiles/2R.png", "pictures/rue-morgue/tiles/2V.png"],
+            "c": ["pictures/rue-morgue/tiles/3R.png", "pictures/rue-morgue/tiles/3V.png"],
+            "d": ["pictures/rue-morgue/tiles/4R.png", "pictures/rue-morgue/tiles/4V.png"],
+            "e": ["pictures/rue-morgue/tiles/5R.png", "pictures/rue-morgue/tiles/5V.png"],
+            "f": ["pictures/rue-morgue/tiles/6R.png", "pictures/rue-morgue/tiles/6V.png"],
+            "g": ["pictures/rue-morgue/tiles/7R.png", "pictures/rue-morgue/tiles/7V.png"],
+            "h": ["pictures/rue-morgue/tiles/8R.png", "pictures/rue-morgue/tiles/8V.png"],
+            "i": ["pictures/rue-morgue/tiles/9R.png", "pictures/rue-morgue/tiles/9V.png"]
+        }
     };
     
     $.each(zombicide.cars, function (index, value) {
@@ -149,7 +211,7 @@ $(document).ready(function () {
         $(".minitiles").append('<div class="zombicide ' + ind + '"></div>');
         $.each(val, function(index, value) {
             var id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
-            var object = '<div class="draggable zombicide tile" id="' + id_name + '"><img src="' + value + '"></div>';
+            var object = '<div class="draggable zombicide tile" id="' + id_name + '" title="' + id_name + '"><img src="' + value + '"></div>';
             $(".minitiles .zombicide." + ind).append(object);
         });
     });
@@ -186,7 +248,7 @@ $(document).ready(function () {
     
     $.each(prison_outbreak.spawns, function (index, value) {
         var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable prison-outbreak" id="' + id_name + '"><img src="' + value + '"></div>';
+        var object = '<div class="draggable prison-outbreak" id="' + id_name + '" title="' + id_name + '"><img src="' + value + '"></div>';
         $("div.spawns").append(object);
     });
     
@@ -196,6 +258,51 @@ $(document).ready(function () {
             var id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
             var object = '<div class="draggable prison-outbreak tile" id="' + id_name + '"><img src="' + value + '"></div>';
             $(".minitiles .prison-outbreak." + ind).append(object);
+        });
+    });
+    
+    $.each(rue_morgue.spawns, function (index, value) {
+        var id_name = value.replace(/\/|\./g, "-");
+        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        $("div.spawns").append(object);
+    });
+    
+    $.each(rue_morgue.doors, function (index, value) {
+        var id_name = value.replace(/\/|\./g, "-");
+        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        $("div.doors").append(object);
+    });
+    
+    $.each(rue_morgue.helicopters, function (index, value) {
+        var id_name = value.replace(/\/|\./g, "-");
+        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        $("div.helicopter").append(object);
+    });
+    
+    $.each(rue_morgue.objectives, function (index, value) {
+        var id_name = value.replace(/\/|\./g, "-");
+        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        $("div.objectives").append(object);
+    });
+    
+    $.each(rue_morgue.others, function (index, value) {
+        var id_name = value.replace(/\/|\./g, "-");
+        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        $("div.other").append(object);
+    });
+    
+    $.each(rue_morgue.tents, function (index, value) {
+        var id_name = value.replace(/\/|\./g, "-");
+        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        $("div.tents").append(object);
+    });
+    
+    $.each(rue_morgue.tiles, function (ind, val) {
+        $(".minitiles").append('<div class="rue-morgue ' + ind + '"></div>');
+        $.each(val, function(index, value) {
+            var id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
+            var object = '<div class="draggable rue-morgue tile" id="' + id_name + '" title="' + id_name + '"><img src="' + value + '"></div>';
+            $(".minitiles .rue-morgue." + ind).append(object);
         });
     });
 });
