@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Zombicide board creator</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/zombicide.css">
+        <link rel="stylesheet" href="css/print.css">
+        <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="js/add_content.js"></script>
+        <script src="js/setup.js"></script>
+        <script src="js/zombicide.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <button id="print-button" type="button">Drukuj scenariusz</button>
+        <button id="hide-canvas" type="button">Zmniejsz planszę</button>
+        <div class="minitiles"></div>
+
+        <sidebar>
+            <form>
+                <p class="tiles category"><i class="fa fa-caret-down" aria-hidden="true"></i> Dostępne kafelki</p>
+                <div class="tiles">
+                    <ul>
+                        <li><input type=checkbox id="part1">Zombicide</li>
+                        <li><input type="checkbox" id="part2">Prison Outbreak</li>
+                        <li><input type="checkbox" id="part3">Rue Morgue</li>
+                    </ul>
+                </div>
+                <p class="doors category"><i class="fa fa-caret-right" aria-hidden="true"></i> Drzwi</p>
+                <div class="menu doors"></div>
+                <p class="objectives category"><i class="fa fa-caret-right" aria-hidden="true"></i> Znaczniki</p>
+                <div class="menu objectives"></div>
+                <p class="cars category"><i class="fa fa-caret-right" aria-hidden="true"></i> Samochody</p>
+                <div class="menu cars"></div>
+                <p class="helicopter rue-morgue category"><i class="fa fa-caret-right" aria-hidden="true"></i> Helikopter</p>
+                <div class="menu helicopter rue-morgue"></div>
+                <p class="tents rue-morgue category"><i class="fa fa-caret-right" aria-hidden="true"></i> Namioty</p>
+                <div class="menu tents rue-morgue"></div>
+                <p class="spawns category"><i class="fa fa-caret-right" aria-hidden="true"></i> Strefy namnażania</p>
+                <div class="menu spawns"></div>
+                <p class="other category"><i class="fa fa-caret-right" aria-hidden="true"></i> Inne</p>
+                <div class="menu other"></div>
+            </form>
+        </sidebar>
+        
+        <div id="editor">
+            <div id="title-bar">
+                
+
+                <div class="scenario title">
+                    <span id="game-title">TYTUŁ</span>
+                    <div class="scenario category">
+                        <span id="level">ŁATWY</span> / <span id="players">4</span> GRACZY
+                    </div>
+                </div>
+
+                <div id="canvas"></div>
+                
+                <form id="title">
+                    <input class="title" name="game-title" type="text" placeholder="TYTUŁ">
+                    <select name="level" class="title category">
+                        <option value="easy">Łatwy</option>
+                        <option value="medium">Średni</option>
+                        <option value="hard">Trudny</option>
+                        <option value="suicide">Samobójstwo</option>
+                    </select>
+                    <input name="players" class="title category" type="text" placeholder="4">
+                    <label class="title category">GRACZY</label>
+                </form>
+            </div>
+
+            <form id="description">
+                <label class="subtitle">Opis</label>
+                <textarea class="text" name="story" rows="5" cols="80"></textarea>
+                <label class="subtitle">Cele</label>
+                <textarea class="text" name="goals" rows="5" cols="80"></textarea>
+                <label class="subtitle">Zasady specjalne</label>
+                <textarea class="text" name="special-rules" rows="5" cols="80"></textarea>
+            </form>
+
+            <div id="story" class="scenario story"></div>
+            <div class="scenario subtitle">
+                CELE
+            </div>
+            <div id="goals" class="scenario text"></div>
+            <div class="scenario subtitle">
+                ZASADY SPECJALNE
+            </div>
+            <div id="special-rules" class="scenario text"></div>
+            
+            <div class="scenario subtitle">
+                POTRZEBNE ELEMENTY
+            </div>
+            <div id="needed-elements" class="scenario text"></div>
+        </div>
+    </body>
+</html>
