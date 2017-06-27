@@ -6,16 +6,77 @@
     body {
         margin 1.2cm;
     }
-    sidebar, .minitiles, form {
+    
+    sidebar, .minitiles, form, button {
         display: none;
     }
     
-    div[class^="scenario"] {
-        visibility: visible;
+    .title {
+        font-family: 'OpenSansExtraBold';
+        color: orange;
+        font-size: 2.5em;
+        margin-top: 0.5em;
+        text-transform: uppercase;
+    }
+
+    .category {
+        font-size: 0.5em;
+        color: gray;
+        margin-bottom: 1em;
+        text-transform: uppercase;
+    }
+
+    .story {
+        font-family: 'GorriSans';
+        font-size: 0.8em;
+    }
+
+    .subtitle {
+        font-family: 'Crackhouse';
+        color: gray;
+        font-size: 2em;
+    }
+
+    .text {
+        font-family: 'OpenSans';
     }
     
+    .text li {
+        font-size: 1em;
+    }
+
+    .text strong {
+        font-family: 'OpenSansBold';
+    }
+
+    .boardtile {
+        background-color: lightgray;
+        margin: 0;
+        width: 200px;
+        height: 200px;
+        float: left;
+    }
+
+    .boardtile img {
+        width: 200px;
+        height: 200px;
+    }
+
     #canvas {
-        position: inherit;
-        margin-left: 3em;
+        min-height: 500px;
+        background-color: rgba(169, 169, 169, 0.2);
+        margin: 1em;
+    }
+
+    .scenario {
+        clear: both;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #editor {
+        margin-left: 2em;
     }
 }
