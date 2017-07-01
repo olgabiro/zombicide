@@ -225,7 +225,7 @@ $(document).ready(function () {
         else {
             canvas.addClass("minified");
             var newSize = tileSize / 4;
-            canvas.css("padding", "0.5em").css("float", "right").css("clear", "none");
+            canvas.css("padding", "0.5em").css("float", "right").css("clear", "none").css("margin-right", "2em");
             resizeCanvas(newSize);
             $(this).text("Powiększ planszę");
             $(".draggable").draggable("disable");
