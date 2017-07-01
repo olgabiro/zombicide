@@ -7,7 +7,7 @@
         margin 1.2cm;
     }
     
-    sidebar, .minitiles, form, button {
+    sidebar, .minitiles, form, button, .languages {
         display: none;
     }
     
@@ -78,5 +78,9 @@
 
     #editor {
         margin-left: 2em;
+    }
+    
+    #header-needed {
+        text-transform: uppercase;
     }
 }

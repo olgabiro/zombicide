@@ -161,7 +161,6 @@ $(document).ready(function () {
     }
     
     function scaleCanvas(canvasPosition, tileWidth) {
-        console.log("canvasPosition", canvasPosition);
         $('.boardtile img').css("width", tileWidth).css("height", tileWidth);
         $('.boardtile').css("width", tileWidth).css("height", tileWidth);
         updateBoard(tileWidth);
@@ -182,15 +181,8 @@ $(document).ready(function () {
         $("#" + $(this).attr("name")).text($(this).val());
     });
     
-    var levels = {
-        "easy" : "ŁATWY",
-        "medium" : "ŚREDNI",
-        "hard" : "TRUDNY",
-        "suicide" : "SAMOBÓJSTWO"
-    };
-    
     $("select").bind("input", function() {
-        var value = levels[$(this).val()];
+        var value = translation[lang][$(this).val()];
         $("#" + $(this).attr("name")).text(value);
     });
     
@@ -218,7 +210,7 @@ $(document).ready(function () {
             canvas.removeClass("minified");
             canvas.width("100%").height("500px").css("padding", "0");
             canvas.css("float", "none").css("clear", "both").css("min-height", "500px");
-            $(this).text("Zmniejsz planszę");
+            $(this).text(translation[lang]["hide-canvas"]);
             scaleCanvas(canvas.position(), tileSize);
             $(".draggable").draggable("enable");
         }
@@ -227,7 +219,7 @@ $(document).ready(function () {
             var newSize = tileSize / 4;
             canvas.css("padding", "0.5em").css("float", "right").css("clear", "none").css("margin-right", "2em");
             resizeCanvas(newSize);
-            $(this).text("Powiększ planszę");
+            $(this).text(translation[lang]["show-canvas"]);
             $(".draggable").draggable("disable");
         }
     });
@@ -253,22 +245,22 @@ $(document).ready(function () {
         
         var ul = "<ul>";
         if (doors > 0) {
-            ul += `<li>drzwi: ${doors}`;
+            ul += `<li>${translation[lang]["doors"]}: ${doors}`;
         }
         if (objectives > 0){
-            ul += `<li>znaczniki celu: ${objectives}`;
+            ul += `<li>${translation[lang]["objectives"]}: ${objectives}`;
         }
         if (cars > 0) {
-            ul += `<li>samochody: ${cars}`;
+            ul += `<li>${translation[lang]["cars"]}: ${cars}`;
         }
         if (spawns > 0) {
-            ul += `<li>strefy namnażania: ${spawns}`;
+            ul += `<li>${translation[lang]["spawns"]}: ${spawns}`;
         }
         ul += "</ul>";
         
         $("#needed-elements").append(ul);
         
-        var tilesList = "<p>Użyte kafelki: ";
+        var tilesList = "<p>" + translation[lang]["used-tiles"] + ": ";
         for (var tile in usedTiles) {
             tilesList += usedTiles[tile];
             tilesList += ", "
