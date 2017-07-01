@@ -63,16 +63,17 @@ label#players_no {
     text-transform: uppercase;
 }
 
-button {
-    cursor: pointer;
+#buttons {
+    position: absolute;
+    top: 6em;
+    left: 2em;
+    width: 150px;
 }
 
-button#hide-canvas {
-    position: absolute;
-    top: 7em;
-    left: 2em;
-    width: 125px;
-    margin: 0 1em;
+button {
+    cursor: pointer;
+    margin-bottom: 4px;
+    min-width: 125px;    
 }
 
 .languages {
@@ -105,9 +106,10 @@ form#description * {
 
 form#description label {
     clear: left;
-    width: 3em;
+    width: 3.5em;
     margin-top: 0.3em;
     margin-right: 0.5em;
+    margin-left: -0.5em;
     text-align: right;
 }
 
@@ -253,14 +255,6 @@ div.scenario {
 
 input[type="text"] {
     width: 9em;
-}
-
-#print-button {
-    position: absolute;
-    top: 9em;
-    left: 2em;
-    width: 125px;
-    margin: 0 1em;
 }
 
 @font-face {

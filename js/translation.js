@@ -46,6 +46,30 @@ var translation = {
         "edit-special": "Zasady specjalne",
         "header-needed": "Potrzebne elementy",
         "used-tiles": "Użyte kafelki"
+    },
+    "lang-de": {
+        "hide-canvas": "Spielbrett verkleinen",
+        "show-canvas": "Spielbrett vergrössern",
+        "print-button": "Szenario ausdrucken",
+        "edition": "Staffeln",
+        "doors": "Tür",
+        "objectives": "Ziele",
+        "cars": "Autos",
+        "spawns": "Zombie-Brut",
+        "helicopter": "Helikopter",
+        "tents": "Zelten",
+        "other": "Andere",
+        "game-title": "Titel",
+        "easy": "Einfach",
+        "medium": "Mittel",
+        "hard": "Schwer",
+        "suicide": "Suizid",
+        "players_no": "Spieler",
+        "edit-story": "Geschichte",
+        "edit-goals": "Ziele",
+        "edit-special": "Sonderegeln",
+        "header-needed": "Gebrauchte Plättchen",
+        "used-tiles": "Benötigte Kartenteile"
     }
 };
 
@@ -63,6 +87,7 @@ $(document).ready(function() {
         $("#header-special").text(translation[key]["edit-special"].toUpperCase());
         $("#level").text(translation[key]["easy"].toUpperCase());
         $("#header-players").text(translation[key]["players_no"].toUpperCase());
+        
     });
 
     $("#lang-en").click();
