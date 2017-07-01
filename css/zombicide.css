@@ -59,6 +59,10 @@ form#title select {
     margin-right: 2em;
 }
 
+label#players_no {
+    text-transform: uppercase;
+}
+
 button {
     cursor: pointer;
 }
@@ -69,6 +73,17 @@ button#hide-canvas {
     left: 2em;
     width: 125px;
     margin: 0 1em;
+}
+
+.languages {
+    text-align: right;
+    margin-bottom: 2px;
+    margin-right: 2em;
+}
+
+.languages a {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #editor {
