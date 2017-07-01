@@ -62,6 +62,7 @@ $(document).ready(function() {
         $("#header-goals").text(translation[key]["edit-goals"].toUpperCase());
         $("#header-special").text(translation[key]["edit-special"].toUpperCase());
         $("#level").text(translation[key]["easy"].toUpperCase());
+        $("#header-players").text(translation[key]["players_no"].toUpperCase());
     });
 
     $("#lang-en").click();
