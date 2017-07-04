@@ -1,8 +1,9 @@
+tileSize = 160;
+
 $(document).ready(function () {
     "use strict";
     
     var tiles = {},
-        tileSize = 160,
         rotation = {},
         others = {};
     
@@ -22,7 +23,6 @@ $(document).ready(function () {
     }
     
     function updateBoard(size=tileSize) {
-        
         $("#canvas .draggable").not(".boardtile").each(function () {
             $(this).appendTo("#canvas");
         });
@@ -213,6 +213,10 @@ $(document).ready(function () {
             $(this).text(translation[lang]["hide-canvas"]);
             scaleCanvas(canvas.position(), tileSize);
             $(".draggable").draggable("enable");
+            showGrid(tileSize, canvas.offset(), {
+                width: canvas.width(),
+                height: canvas.height()
+            });
         }
         else {
             canvas.addClass("minified");
@@ -221,6 +225,7 @@ $(document).ready(function () {
             resizeCanvas(newSize);
             $(this).text(translation[lang]["show-canvas"]);
             $(".draggable").draggable("disable");
+            hideGrid();
         }
     });
     
@@ -306,7 +311,5 @@ $(document).ready(function () {
         
         hideScenario();
         resizeCanvas(tileSize);
-        
-        
     });
 });
