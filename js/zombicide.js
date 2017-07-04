@@ -298,7 +298,7 @@ $(document).ready(function () {
         if ($("#canvas").hasClass("minified")) {
             $("#hide-canvas").click();
         }
-        
+        hideGrid();
         showScenario();
         
         var offset = {
@@ -311,5 +311,6 @@ $(document).ready(function () {
         
         hideScenario();
         resizeCanvas(tileSize);
+        showGrid();
     });
 });
