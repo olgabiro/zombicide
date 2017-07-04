@@ -1,4 +1,4 @@
-tileSize = 160;
+var tileSize = 160;
 
 $(document).ready(function () {
     "use strict";
@@ -311,6 +311,6 @@ $(document).ready(function () {
         
         hideScenario();
         resizeCanvas(tileSize);
-        showGrid();
+        showGrid(tileSize, $("#canvas").offset(), {width: $("#canvas").width(), height: $("#canvas").height()});
     });
 });
