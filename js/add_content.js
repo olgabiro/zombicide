@@ -2,8 +2,6 @@ $(document).ready(function () {
     "use strict";
     var prison_outbreak = {
         spawns: [
-            "pictures/prison-outbreak/spawns/blue.jpg",
-            "pictures/prison-outbreak/spawns/red.jpg",
             "pictures/prison-outbreak/spawns/green.png",
             "pictures/prison-outbreak/spawns/white.png",
             "pictures/prison-outbreak/spawns/yellow.png",
@@ -11,27 +9,19 @@ $(document).ready(function () {
         ],
         cars: [
             "pictures/prison-outbreak/cars/muscle.png",
-            "pictures/prison-outbreak/cars/police-1.jpg",
             "pictures/prison-outbreak/cars/hippie.png",
-            "pictures/prison-outbreak/cars/taxi-1.png",
-            "pictures/prison-outbreak/cars/pimp-1.jpg"
+            "pictures/prison-outbreak/cars/taxi-1.png"
         ],
         doors: [
             "pictures/prison-outbreak/doors/main-white-closed.png",
             "pictures/prison-outbreak/doors/yellow-open.png",
-            "pictures/prison-outbreak/doors/red-open.jpg",
             "pictures/prison-outbreak/doors/security-gate-2.png",
             "pictures/prison-outbreak/doors/white-closed.png",
             "pictures/prison-outbreak/doors/white-open.png",
             "pictures/prison-outbreak/doors/main-white-open.png",
             "pictures/prison-outbreak/doors/main-standard-closed.png",
-            "pictures/prison-outbreak/doors/red-closed.jpg",
             "pictures/prison-outbreak/doors/security-gate-1.png",
-            "pictures/prison-outbreak/doors/green-open.jpg",
             "pictures/prison-outbreak/doors/cell-violet-closed.png",
-            "pictures/prison-outbreak/doors/blue-closed.jpg",
-            "pictures/prison-outbreak/doors/blue-open.jpg",
-            "pictures/prison-outbreak/doors/green-closed.jpg",
             "pictures/prison-outbreak/doors/cell-white-open.png",
             "pictures/prison-outbreak/doors/cell-white-closed.png",
             "pictures/prison-outbreak/doors/cell-violet-open.png",
@@ -43,18 +33,12 @@ $(document).ready(function () {
             "pictures/prison-outbreak/doors/main-standard-open.png"
         ],
         objectives: [
-            "pictures/prison-outbreak/objectives/blue.jpg",
             "pictures/prison-outbreak/objectives/white.png",
             "pictures/prison-outbreak/objectives/yellow.png",
-            "pictures/prison-outbreak/objectives/red.jpg",
-            "pictures/prison-outbreak/objectives/violet.png",
-            "pictures/prison-outbreak/objectives/green.jpg"
+            "pictures/prison-outbreak/objectives/violet.png"
         ],
         other: [
-            "pictures/prison-outbreak/other/exit.jpg",
-            "pictures/prison-outbreak/other/start.jpg",
             "pictures/prison-outbreak/other/observation-1.png",
-            "pictures/prison-outbreak/other/noise.png",
             "pictures/prison-outbreak/other/switch-violet.png",
             "pictures/prison-outbreak/other/observation-2.png",
             "pictures/prison-outbreak/other/switch-white.png",
@@ -73,32 +57,6 @@ $(document).ready(function () {
             "i" : ["pictures/prison-outbreak/tiles/16P.png", "pictures/prison-outbreak/tiles/17P.png"]
         }
     }, zombicide = {
-        cars: [
-            "pictures/zombicide/cars/police.jpg",
-            "pictures/zombicide/cars/pimp.jpg"
-        ],
-        doors: [
-            "pictures/zombicide/doors/closed-green.jpg",
-            "pictures/zombicide/doors/open-green.jpg",
-            "pictures/zombicide/doors/open-red.jpg",
-            "pictures/zombicide/doors/open-blue.jpg",
-            "pictures/zombicide/doors/closed-red.jpg",
-            "pictures/zombicide/doors/closed-blue.jpg"
-        ],
-        objectives: [
-            "pictures/zombicide/objectives/blue.jpg",
-            "pictures/zombicide/objectives/red.jpg",
-            "pictures/zombicide/objectives/green.jpg"
-        ],
-        others: [
-            "pictures/zombicide/others/exit.jpg",
-            "pictures/zombicide/others/start.jpg",
-            "pictures/zombicide/others/noise.png"
-        ],
-        spawns: [
-            "pictures/zombicide/spawns/blue.jpg",
-            "pictures/zombicide/spawns/red.jpg"
-        ],
         tiles: {
             "a" : ["pictures/zombicide/tiles/1B.jpg", "pictures/zombicide/tiles/3B.jpg"],
             "b" : ["pictures/zombicide/tiles/1C.jpg", "pictures/zombicide/tiles/3C.jpg"],
@@ -112,9 +70,7 @@ $(document).ready(function () {
         }
     }, rue_morgue = {
         spawns: [
-            "pictures/rue-morgue/spawns/pink.png",
-            "pictures/rue-morgue/spawns/blue.png",
-            "pictures/rue-morgue/spawns/red.png"
+            "pictures/rue-morgue/spawns/pink.png"
         ],
         tents: [
             "pictures/rue-morgue/tents/rb2.png",
@@ -136,26 +92,17 @@ $(document).ready(function () {
         ],
         doors: [
             "pictures/rue-morgue/doors/pink-closed.png",
-            "pictures/rue-morgue/doors/red-closed.png",
-            "pictures/rue-morgue/doors/red-open.png",
-            "pictures/rue-morgue/doors/blue-open.png",
             "pictures/rue-morgue/doors/pink-open.png",
-            "pictures/rue-morgue/doors/blue-closed.png"
         ],
         objectives: [
-            "pictures/rue-morgue/objectives/pink.png",
-            "pictures/rue-morgue/objectives/blue.png",
-            "pictures/rue-morgue/objectives/red.png"
+            "pictures/rue-morgue/objectives/pink.png"
         ],
         others: [
             "pictures/rue-morgue/other/locator_2.png",
             "pictures/rue-morgue/other/locator_6.png",
             "pictures/rue-morgue/other/trigger_off.png",
             "pictures/rue-morgue/other/locator_4.png",
-            "pictures/rue-morgue/other/exit.png",
-            "pictures/rue-morgue/other/start.png",
             "pictures/rue-morgue/other/helicopter_stairs.png",
-            "pictures/rue-morgue/other/noise.png",
             "pictures/rue-morgue/other/locator_5.png",
             "pictures/rue-morgue/other/locator_1.png",
             "pictures/rue-morgue/other/trigger_on.png",
@@ -173,6 +120,8 @@ $(document).ready(function () {
             "i": ["pictures/rue-morgue/tiles/9R.png", "pictures/rue-morgue/tiles/9V.png"]
         }
     };
+    
+/************************* ADDING ZOMBICIDE ELEMENTS ***********************************/
     
     $.each(zombicide.cars, function (index, value) {
         var id_name = value.replace(/\/|\./g, "-");
@@ -213,6 +162,8 @@ $(document).ready(function () {
         });
     });
     
+/************************* ADDING PRISON OUTBREAK ELEMENTS ***********************************/
+    
     $.each(prison_outbreak.cars, function (index, value) {
         var id_name = value.replace(/\/|\./g, "-");
         var object = '<div class="draggable prison-outbreak" id="' + id_name + '"><img src="' + value + '"></div>';
@@ -251,6 +202,8 @@ $(document).ready(function () {
             $(".minitiles .prison-outbreak." + ind).append(object);
         });
     });
+    
+/************************* ADDING RUE MORGUE ELEMENTS ***********************************/
     
     $.each(rue_morgue.spawns, function (index, value) {
         var id_name = value.replace(/\/|\./g, "-");
@@ -295,5 +248,32 @@ $(document).ready(function () {
             var object = '<div class="draggable rue-morgue tile" id="' + id_name + '" title="' + id_name + '"><img src="' + value + '"></div>';
             $(".minitiles .rue-morgue." + ind).append(object);
         });
+    });
+    
+/************************* ADDING COMMON ELEMENTS ***********************************/
+    
+    $.each(common.cars, function (index, value) {
+        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        $("div.cars").append(object);
+    });
+    
+    $.each(common.doors, function (index, value) {
+        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        $("div.doors").append(object);
+    });
+    
+    $.each(common.objectives, function (index, value) {
+        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        $("div.objectives").append(object);
+    });
+    
+    $.each(common.others, function (index, value) {
+        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        $("div.other").append(object);
+    });
+    
+    $.each(common.spawns, function (index, value) {
+        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        $("div.spawns").append(object);
     });
 });
