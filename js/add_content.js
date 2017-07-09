@@ -10,14 +10,11 @@ $(document).ready(function () {
             "pictures/prison-outbreak/spawns/violet.png"
         ],
         cars: [
-            "pictures/prison-outbreak/cars/taxi-2.png",
             "pictures/prison-outbreak/cars/muscle.png",
             "pictures/prison-outbreak/cars/police-1.jpg",
             "pictures/prison-outbreak/cars/hippie.png",
-            "pictures/prison-outbreak/cars/pimp-2.jpg",
             "pictures/prison-outbreak/cars/taxi-1.png",
-            "pictures/prison-outbreak/cars/pimp-1.jpg",
-            "pictures/prison-outbreak/cars/police-2.jpg"
+            "pictures/prison-outbreak/cars/pimp-1.jpg"
         ],
         doors: [
             "pictures/prison-outbreak/doors/main-white-closed.png",
@@ -214,12 +211,6 @@ $(document).ready(function () {
             var object = '<div class="draggable zombicide tile" id="' + id_name + '" title="' + id_name + '"><img src="' + value + '"></div>';
             $(".minitiles .zombicide." + ind).append(object);
         });
-    });
-    
-    $.each(prison_outbreak.cars, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable prison-outbreak" id="' + id_name + '"><img src="' + value + '"></div>';
-        $("div.cars").append(object);
     });
     
     $.each(prison_outbreak.cars, function (index, value) {
