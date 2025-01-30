@@ -123,113 +123,15 @@ $(document).ready(function () {
 
     /************************* ADDING ZOMBICIDE ELEMENTS ***********************************/
 
-    $.each(zombicide.cars, function (index, value) {
-        const object = createImage(value);
-        $("div.cars").append(object);
-    });
-
-    $.each(zombicide.doors, function (index, value) {
-        const object = createImage(value);
-        $("div.doors").append(object);
-    });
-
-    $.each(zombicide.objectives, function (index, value) {
-        const object = createImage(value);
-        $("div.objectives").append(object);
-    });
-
-    $.each(zombicide.others, function (index, value) {
-        const object = createImage(value);
-        $("div.other").append(object);
-    });
-
-    $.each(zombicide.spawns, function (index, value) {
-        const object = createImage(value);
-        $("div.spawns").append(object);
-    });
-
-    $.each(zombicide.tiles, function (ind, val) {
-        $(".miniTiles").append(`<div class="zombicide ${ind}"></div>`);
-        $.each(val, function (index, value) {
-            const object = createImageForMiniTile(value, "zombicide");
-            $(`.miniTiles .zombicide.${ind}`).append(object);
-        });
-    });
+    loadAssets(zombicide, "zombicide");
 
     /************************* ADDING PRISON OUTBREAK ELEMENTS ***********************************/
 
-    $.each(prison_outbreak.cars, function (index, value) {
-        const object = createImage(value, "prison-outbreak");
-        $("div.cars").append(object);
-    });
-
-    $.each(prison_outbreak.doors, function (index, value) {
-        const object = createImage(value, "prison-outbreak");
-        $("div.doors").append(object);
-    });
-
-    $.each(prison_outbreak.objectives, function (index, value) {
-        const object = createImage(value, "prison_outbreak");
-        $("div.objectives").append(object);
-    });
-
-    $.each(prison_outbreak.other, function (index, value) {
-        const object = createImage(value, "prison-outbreak");
-        $("div.other").append(object);
-    });
-
-    $.each(prison_outbreak.spawns, function (index, value) {
-        const object = createImage(value, "prison-outbreak");
-        $("div.spawns").append(object);
-    });
-
-    $.each(prison_outbreak.tiles, function (ind, val) {
-        $(".miniTiles").append(`<div class="prison-outbreak ${ind}"></div>`);
-        $.each(val, function (index, value) {
-            const object = createImageForMiniTile(value, "prison-outbreak");
-            $(`.miniTiles .prison-outbreak.${ind}`).append(object);
-        });
-    });
+    loadAssets(prison_outbreak, "prison-outbreak");
 
     /************************* ADDING RUE MORGUE ELEMENTS ***********************************/
 
-    $.each(rue_morgue.spawns, function (index, value) {
-        const object = createImage(value, "rue-morgue");
-        $("div.spawns").append(object);
-    });
-
-    $.each(rue_morgue.doors, function (index, value) {
-        const object = createImage(value, "rue-morgue");
-        $("div.doors").append(object);
-    });
-
-    $.each(rue_morgue.helicopters, function (index, value) {
-        const object = createImage(value, "rue-morgue");
-        $("div.helicopter").append(object);
-    });
-
-    $.each(rue_morgue.objectives, function (index, value) {
-        const object = createImage(value, "rue-morgue");
-        $("div.objectives").append(object);
-    });
-
-    $.each(rue_morgue.others, function (index, value) {
-        const object = createImage(value, "rue-morgue");
-        $("div.other").append(object);
-    });
-
-    $.each(rue_morgue.tents, function (index, value) {
-        const object = createImage(value, "rue-morgue");
-        $("div.tents").append(object);
-    });
-
-    $.each(rue_morgue.tiles, function (ind, val) {
-        $(".miniTiles").append(`<div class="rue-morgue ${ind}"></div>`);
-        $.each(val, function (index, value) {
-            const object = createImageForMiniTile(value, "rue-morgue");
-            $(`.miniTiles .rue-morgue.${ind}`).append(object);
-        });
-    });
+    loadAssets(rue_morgue, "rue-morgue");
 
     /************************* ADDING COMMON ELEMENTS ***********************************/
 
@@ -259,7 +161,50 @@ $(document).ready(function () {
     });
 });
 
-function createImage(value, seasonClass = "zombicide") {
+function loadAssets(assetPack, seasonClass) {
+    $.each(assetPack.cars, (index, value) => {
+        loadAsset(value, "cars", seasonClass);
+    });
+
+    $.each(assetPack.doors, function (index, value) {
+        loadAsset(value, "doors", seasonClass);
+    });
+
+    $.each(assetPack.objectives, function (index, value) {
+        loadAsset(value, "objectives", seasonClass);
+    });
+
+    $.each(assetPack.others, function (index, value) {
+        loadAsset(value, "other", seasonClass);
+    });
+
+    $.each(assetPack.tents, function (index, value) {
+        loadAsset(value, "tents", seasonClass);
+    });
+
+    $.each(assetPack.helicopters, function (index, value) {
+        loadAsset(value, "helicopter", seasonClass);
+    });
+
+    $.each(assetPack.spawns, function (index, value) {
+        loadAsset(value, "spawns", seasonClass);
+    });
+
+    $.each(assetPack.tiles, function (ind, val) {
+        $(".miniTiles").append(`<div class="zombicide ${ind}"></div>`);
+        $.each(val, function (index, value) {
+            const object = createImageForMiniTile(value, seasonClass);
+            $(`.miniTiles .zombicide.${ind}`).append(object);
+        });
+    });
+}
+
+function loadAsset(value, className, seasonClass) {
+    const object = createImage(value, seasonClass);
+    $(`div.${className}`).append(object);
+}
+
+function createImage(value, seasonClass) {
     const id_name = value.replace(/[\/.]/g, "-");
     return `<div class="draggable ${seasonClass}" id="${id_name}"><img src="${value}" alt="${value}"></div>`;
 }
