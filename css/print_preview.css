@@ -1,7 +1,7 @@
 body {
     margin: 1.2cm;
 }
-sidebar, .minitiles, form {
+#sidebar, .miniTiles, form {
     display: none;
 }
 

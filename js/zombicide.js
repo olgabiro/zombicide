@@ -42,9 +42,9 @@ $(document).ready(function () {
         opacity: 0.35
     });
     
-    $(".menu .draggable, .minitiles .draggable").draggable("option", "helper", "clone");
+    $(".menu .draggable, .miniTiles .draggable").draggable("option", "helper", "clone");
     
-    $(".minitiles").droppable({
+    $(".miniTiles").droppable({
         drop: function (event, ui) {
             if (ui.draggable.hasClass("boardtile")) {
                 var name = ui.draggable.attr("id");
@@ -285,14 +285,13 @@ $(document).ready(function () {
     }
     
     $("#print-button").click(function () {
-        if ($("#special-rules").text() == "") {            
-            $("#special-rules").addClass("hidden");
-            $("#special-rules").prev().addClass("hidden");
+        let $specialRules = $("#special-rules");
+        if ($specialRules.text() === "") {
+            $specialRules.addClass("hidden").prev().addClass("hidden");
         }
         
         else {
-            $("#special-rules").removeClass("hidden");
-            $("#special-rules").prev().removeClass("hidden");
+            $specialRules.removeClass("hidden").prev().removeClass("hidden");
         }
         
         if ($("#canvas").hasClass("minified")) {

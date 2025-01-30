@@ -174,7 +174,7 @@ li {
     font-size: 0.8em;
 }
 
-.minitiles {
+.miniTiles {
     padding: 0 2em;
     font-size: 0.75em;
     height: 10em;
@@ -192,12 +192,12 @@ form {
     position: absolute;
 }
 
-.minitiles .draggable {
+.miniTiles .draggable {
     float: left;
     margin: 0.75em 0;
 }
 
-.minitiles img {
+.miniTiles img {
     height: 40px;
     width: 40px;
     margin-right: 2px;

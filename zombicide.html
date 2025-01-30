@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="pl">
     <head>
         <title>Zombicide board creator</title>
         <meta charset="utf-8">
@@ -14,19 +14,19 @@
     </head>
     <body>
         
-        <a id="print-preview" href="#" onclick="changeCSS('css/print_preview.css', 0);">Print preview</a>
-        <a href="#" onclick="changeCSS('css/zombicide.css', 0);">Regular view</a>
+        <button id="print-preview" type="button" onclick="changeCSS('css/print_preview.css', 0);">Print preview</button>
+        <button id="regular-view" type="button" onclick="changeCSS('css/zombicide.css', 0);">Regular view</button>
         <button id="print-button" type="button">Print board</button>
-        <div class="minitiles"></div>
+        <div class="miniTiles"></div>
 
-        <sidebar>
+        <div id="sidebar">
             <form>
                 <p class="tiles category"><i class="fa fa-caret-down" aria-hidden="true"></i> Dostępne kafelki</p>
                 <div class="tiles">
                     <ul>
-                        <li><input type=checkbox id="part1">Zombicide</li>
-                        <li><input type="checkbox" id="part2">Prison Outbreak</li>
-                        <li><input type="checkbox" id="part3">Rue Morgue</li>
+                        <li><input type=checkbox id="part1"><label for="part1">Zombicide</label></li>
+                        <li><input type="checkbox" id="part2"><label for="part2">Prison Outbreak</label></li>
+                        <li><input type="checkbox" id="part3"><label for="part3">Rue Morgue</label></li>
                     </ul>
                 </div>
                 <p class="doors category"><i class="fa fa-caret-right" aria-hidden="true"></i> Drzwi</p>
@@ -44,20 +44,22 @@
                 <p class="other category"><i class="fa fa-caret-right" aria-hidden="true"></i> Inne</p>
                 <div class="menu other"></div>
             </form>
-        </sidebar>
+        </div>
         
         <div id="editor">
             <div id="title-bar">
                 <form id="title">
-                    <input class="title" name="game-title" type="text" placeholder="TYTUŁ">
-                    <select name="level" class="title category">
+                    <label for="scenario-title">Tytuł</label>
+                    <input id="scenario-title" class="title" name="game-title" type="text" placeholder="TYTUŁ">
+                    <label for="difficulty-level">Poziom trudności</label>
+                    <select id="difficulty-level" name="level" class="title category">
                         <option value="easy">Łatwy</option>
                         <option value="medium">Średni</option>
                         <option value="hard">Trudny</option>
                         <option value="suicide">Samobójstwo</option>
                     </select>
-                    <input name="players" class="title category" type="text" placeholder="4">
-                    <label class="title category">GRACZY</label>
+                    <input id="players-input" name="players" class="title category" type="text" placeholder="4">
+                    <label for="players-input" class="title category">GRACZY</label>
                     <button id="hide-canvas" type="button">Zmniejsz planszę</button>
                 </form>
 
@@ -72,12 +74,12 @@
             </div>
 
             <form id="description">
-                <label class="subtitle">Opis</label>
-                <textarea class="text" name="story" rows="5" cols="80"></textarea>
-                <label class="subtitle">Cele</label>
-                <textarea class="text" name="goals" rows="5" cols="80"></textarea>
-                <label class="subtitle">Zasady specjalne</label>
-                <textarea class="text" name="special-rules" rows="5" cols="80"></textarea>
+                <label for="story-input" class="subtitle">Opis</label>
+                <textarea id="story-input" class="text" name="story" rows="5" cols="80"></textarea>
+                <label for="goals-input" class="subtitle">Cele</label>
+                <textarea id="goals-input" class="text" name="goals" rows="5" cols="80"></textarea>
+                <label for="special-rules-input" class="subtitle">Zasady specjalne</label>
+                <textarea id="special-rules-input" class="text" name="special-rules" rows="5" cols="80"></textarea>
             </form>
 
             <div id="story" class="scenario story"></div>
@@ -98,14 +100,14 @@
         
         <script>
             function changeCSS(cssFile, cssLinkIndex) {
-                var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+                let oldLink = document.getElementsByTagName("link").item(cssLinkIndex);
 
-                var newlink = document.createElement("link");
-                newlink.setAttribute("rel", "stylesheet");
-                newlink.setAttribute("type", "text/css");
-                newlink.setAttribute("href", cssFile);
+                let newLink = document.createElement("link");
+                newLink.setAttribute("rel", "stylesheet");
+                newLink.setAttribute("type", "text/css");
+                newLink.setAttribute("href", cssFile);
 
-                document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+                document.getElementsByTagName("head").item(0).replaceChild(newLink, oldLink);
             }
         </script>
     </body>

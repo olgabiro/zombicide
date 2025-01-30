@@ -36,9 +36,9 @@ $(document).ready(function () {
         }
     });
     
-    $("sidebar .menu").hide().addClass("hidden");
+    $("#sidebar .menu").hide().addClass("hidden");
     
-    $("sidebar p").click(function () {
+    $("#sidebar p").click(function () {
         var nextMenu = $(this).next();
         var arrow = $(this).find("i");
         if (nextMenu.hasClass("hidden")) {
