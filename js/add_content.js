@@ -1,6 +1,6 @@
 $(document).ready(function () {
     "use strict";
-    var prison_outbreak = {
+    const prison_outbreak = {
         spawns: [
             "pictures/prison-outbreak/spawns/green.png",
             "pictures/prison-outbreak/spawns/white.png",
@@ -46,27 +46,27 @@ $(document).ready(function () {
             "pictures/prison-outbreak/other/switch-yellow.png"
         ],
         tiles: {
-            "a" : ["pictures/prison-outbreak/tiles/1P.png", "pictures/prison-outbreak/tiles/15P.png"],
-            "b" : ["pictures/prison-outbreak/tiles/2P.png", "pictures/prison-outbreak/tiles/8P.png"],
-            "c" : ["pictures/prison-outbreak/tiles/3P.png", "pictures/prison-outbreak/tiles/12P.png"],
-            "d" : ["pictures/prison-outbreak/tiles/4P.png", "pictures/prison-outbreak/tiles/6P.png"],
-            "e" : ["pictures/prison-outbreak/tiles/5P.png", "pictures/prison-outbreak/tiles/14P.png"],
-            "f" : ["pictures/prison-outbreak/tiles/7P.png", "pictures/prison-outbreak/tiles/11P.png"],
-            "g" : ["pictures/prison-outbreak/tiles/9P.png", "pictures/prison-outbreak/tiles/13P.png"],
-            "h" : ["pictures/prison-outbreak/tiles/10P.png", "pictures/prison-outbreak/tiles/18P.png"],
-            "i" : ["pictures/prison-outbreak/tiles/16P.png", "pictures/prison-outbreak/tiles/17P.png"]
+            "a": ["pictures/prison-outbreak/tiles/1P.png", "pictures/prison-outbreak/tiles/15P.png"],
+            "b": ["pictures/prison-outbreak/tiles/2P.png", "pictures/prison-outbreak/tiles/8P.png"],
+            "c": ["pictures/prison-outbreak/tiles/3P.png", "pictures/prison-outbreak/tiles/12P.png"],
+            "d": ["pictures/prison-outbreak/tiles/4P.png", "pictures/prison-outbreak/tiles/6P.png"],
+            "e": ["pictures/prison-outbreak/tiles/5P.png", "pictures/prison-outbreak/tiles/14P.png"],
+            "f": ["pictures/prison-outbreak/tiles/7P.png", "pictures/prison-outbreak/tiles/11P.png"],
+            "g": ["pictures/prison-outbreak/tiles/9P.png", "pictures/prison-outbreak/tiles/13P.png"],
+            "h": ["pictures/prison-outbreak/tiles/10P.png", "pictures/prison-outbreak/tiles/18P.png"],
+            "i": ["pictures/prison-outbreak/tiles/16P.png", "pictures/prison-outbreak/tiles/17P.png"]
         }
     }, zombicide = {
         tiles: {
-            "a" : ["pictures/zombicide/tiles/1B.jpg", "pictures/zombicide/tiles/3B.jpg"],
-            "b" : ["pictures/zombicide/tiles/1C.jpg", "pictures/zombicide/tiles/3C.jpg"],
-            "c" : ["pictures/zombicide/tiles/2B.jpg", "pictures/zombicide/tiles/6B.jpg"],
-            "d" : ["pictures/zombicide/tiles/2C.jpg", "pictures/zombicide/tiles/6C.jpg"],
-            "e" : ["pictures/zombicide/tiles/4B.jpg", "pictures/zombicide/tiles/5B.jpg"],
-            "f" : ["pictures/zombicide/tiles/4C.jpg", "pictures/zombicide/tiles/5C.jpg"],
-            "g" : ["pictures/zombicide/tiles/4D.jpg", "pictures/zombicide/tiles/5D.jpg"],
-            "h" : ["pictures/zombicide/tiles/4E.jpg", "pictures/zombicide/tiles/5E.jpg"],
-            "i" : ["pictures/zombicide/tiles/7B.jpg", "pictures/zombicide/tiles/5F.jpg"]
+            "a": ["pictures/zombicide/tiles/1B.jpg", "pictures/zombicide/tiles/3B.jpg"],
+            "b": ["pictures/zombicide/tiles/1C.jpg", "pictures/zombicide/tiles/3C.jpg"],
+            "c": ["pictures/zombicide/tiles/2B.jpg", "pictures/zombicide/tiles/6B.jpg"],
+            "d": ["pictures/zombicide/tiles/2C.jpg", "pictures/zombicide/tiles/6C.jpg"],
+            "e": ["pictures/zombicide/tiles/4B.jpg", "pictures/zombicide/tiles/5B.jpg"],
+            "f": ["pictures/zombicide/tiles/4C.jpg", "pictures/zombicide/tiles/5C.jpg"],
+            "g": ["pictures/zombicide/tiles/4D.jpg", "pictures/zombicide/tiles/5D.jpg"],
+            "h": ["pictures/zombicide/tiles/4E.jpg", "pictures/zombicide/tiles/5E.jpg"],
+            "i": ["pictures/zombicide/tiles/7B.jpg", "pictures/zombicide/tiles/5F.jpg"]
         }
     }, rue_morgue = {
         spawns: [
@@ -120,160 +120,155 @@ $(document).ready(function () {
             "i": ["pictures/rue-morgue/tiles/9R.png", "pictures/rue-morgue/tiles/9V.png"]
         }
     };
-    
-/************************* ADDING ZOMBICIDE ELEMENTS ***********************************/
-    
+
+    /************************* ADDING ZOMBICIDE ELEMENTS ***********************************/
+
     $.each(zombicide.cars, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable zombicide" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value);
         $("div.cars").append(object);
     });
-    
+
     $.each(zombicide.doors, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable zombicide" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value);
         $("div.doors").append(object);
     });
-    
+
     $.each(zombicide.objectives, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable zombicide" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value);
         $("div.objectives").append(object);
     });
-    
+
     $.each(zombicide.others, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable zombicide" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value);
         $("div.other").append(object);
     });
-    
+
     $.each(zombicide.spawns, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable zombicide" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value);
         $("div.spawns").append(object);
     });
-    
+
     $.each(zombicide.tiles, function (ind, val) {
-        $(".minitiles").append('<div class="zombicide ' + ind + '"></div>');
-        $.each(val, function(index, value) {
-            var id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
-            var object = '<div class="draggable zombicide tile" id="' + id_name + '" title="' + id_name + '"><img src="' + value + '"></div>';
-            $(".minitiles .zombicide." + ind).append(object);
+        $(".miniTiles").append('<div class="zombicide ' + ind + '"></div>');
+        $.each(val, function (index, value) {
+            const object = createImageForMiniTile(value, "zombicide");
+            $(".miniTiles .zombicide." + ind).append(object);
         });
     });
-    
-/************************* ADDING PRISON OUTBREAK ELEMENTS ***********************************/
-    
+
+    /************************* ADDING PRISON OUTBREAK ELEMENTS ***********************************/
+
     $.each(prison_outbreak.cars, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable prison-outbreak" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "prison-outbreak");
         $("div.cars").append(object);
     });
-    
+
     $.each(prison_outbreak.doors, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable prison-outbreak" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "prison-outbreak");
         $("div.doors").append(object);
     });
-    
+
     $.each(prison_outbreak.objectives, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable prison-outbreak" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "prison_outbreak");
         $("div.objectives").append(object);
     });
-    
+
     $.each(prison_outbreak.other, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable prison-outbreak" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "prison-outbreak");
         $("div.other").append(object);
     });
-    
+
     $.each(prison_outbreak.spawns, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable prison-outbreak" id="' + id_name + '" title="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "prison-outbreak");
         $("div.spawns").append(object);
     });
-    
+
     $.each(prison_outbreak.tiles, function (ind, val) {
-        $(".minitiles").append('<div class="prison-outbreak ' + ind + '"></div>');
-        $.each(val, function(index, value) {
-            var id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
-            var object = '<div class="draggable prison-outbreak tile" id="' + id_name + '"><img src="' + value + '"></div>';
-            $(".minitiles .prison-outbreak." + ind).append(object);
+        $(".miniTiles").append('<div class="prison-outbreak ' + ind + '"></div>');
+        $.each(val, function (index, value) {
+            const object = createImageForMiniTile(value, "prison-outbreak");
+            $(".miniTiles .prison-outbreak." + ind).append(object);
         });
     });
-    
-/************************* ADDING RUE MORGUE ELEMENTS ***********************************/
-    
+
+    /************************* ADDING RUE MORGUE ELEMENTS ***********************************/
+
     $.each(rue_morgue.spawns, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "rue-morgue");
         $("div.spawns").append(object);
     });
-    
+
     $.each(rue_morgue.doors, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "rue-morgue");
         $("div.doors").append(object);
     });
-    
+
     $.each(rue_morgue.helicopters, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "rue-morgue");
         $("div.helicopter").append(object);
     });
-    
+
     $.each(rue_morgue.objectives, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "rue-morgue");
         $("div.objectives").append(object);
     });
-    
+
     $.each(rue_morgue.others, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "rue-morgue");
         $("div.other").append(object);
     });
-    
+
     $.each(rue_morgue.tents, function (index, value) {
-        var id_name = value.replace(/\/|\./g, "-");
-        var object = '<div class="draggable rue-morgue" id="' + id_name + '"><img src="' + value + '"></div>';
+        const object = createImage(value, "rue-morgue");
         $("div.tents").append(object);
     });
-    
+
     $.each(rue_morgue.tiles, function (ind, val) {
-        $(".minitiles").append('<div class="rue-morgue ' + ind + '"></div>');
-        $.each(val, function(index, value) {
-            var id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
-            var object = '<div class="draggable rue-morgue tile" id="' + id_name + '" title="' + id_name + '"><img src="' + value + '"></div>';
-            $(".minitiles .rue-morgue." + ind).append(object);
+        $(".miniTiles").append('<div class="rue-morgue ' + ind + '"></div>');
+        $.each(val, function (index, value) {
+            const object = createImageForMiniTile(value, "rue-morgue");
+            $(".miniTiles .rue-morgue." + ind).append(object);
         });
     });
-    
-/************************* ADDING COMMON ELEMENTS ***********************************/
-    
+
+    /************************* ADDING COMMON ELEMENTS ***********************************/
+
     $.each(common.cars, function (index, value) {
-        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        const object = createCommonObjectImage(value);
         $("div.cars").append(object);
     });
-    
+
     $.each(common.doors, function (index, value) {
-        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        const object = createCommonObjectImage(value);
         $("div.doors").append(object);
     });
-    
+
     $.each(common.objectives, function (index, value) {
-        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        const object = createCommonObjectImage(value);
         $("div.objectives").append(object);
     });
-    
+
     $.each(common.others, function (index, value) {
-        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        const object = createCommonObjectImage(value);
         $("div.other").append(object);
     });
-    
+
     $.each(common.spawns, function (index, value) {
-        var object = '<div class="draggable common" id =' + value.id + '"><img src="' + value.path + '"></div>';
+        const object = createCommonObjectImage(value)
         $("div.spawns").append(object);
     });
 });
+
+function createImage(value, seasonClass = "zombicide") {
+    const id_name = value.replace(/[\/.]/g, "-");
+    return `<div class="draggable ${seasonClass}" id="${id_name}"><img src="${value}" alt="${value}"></div>`;
+}
+
+function createImageForMiniTile(value, seasonClass) {
+    const id_name = value.slice(value.lastIndexOf("/") + 1, value.lastIndexOf("."));
+    return `<div class="draggable ${seasonClass} tile" id="${id_name}"><img src="${value}" alt="${value}"></div>`;
+}
+
+function createCommonObjectImage(value) {
+    return `<div class="draggable common" id ="${value.id}"><img src="${value.path}" alt="${value.path}"></div>`;
+}

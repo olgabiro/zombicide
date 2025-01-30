@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="pl">
     <head>
         <title>Zombicide board creator</title>
         <meta charset="utf-8">
@@ -26,9 +26,9 @@
             <a id="lang-pl">PL</a> |
             <a id="lang-de">DE</a>
         </div>
-        <div class="minitiles"></div>
+        <div class="miniTiles"></div>
 
-        <sidebar>
+        <div id="sidebar">
             <form>
                 <p class="tiles category">
                     <i class="fa fa-caret-down" aria-hidden="true"></i> 
@@ -36,9 +36,9 @@
                 </p>
                 <div class="tiles">
                     <ul>
-                        <li><input type=checkbox id="part1">Zombicide</li>
-                        <li><input type="checkbox" id="part2">Prison Outbreak</li>
-                        <li><input type="checkbox" id="part3">Rue Morgue</li>
+                        <li><input type=checkbox id="part1"><label for="part1">Zombicide</label></li>
+                        <li><input type="checkbox" id="part2"><label for="part2">Prison Outbreak</label></li>
+                        <li><input type="checkbox" id="part3"><label for="part3">Rue Morgue</label></li>
                     </ul>
                 </div>
                 <p class="doors category">
@@ -77,7 +77,7 @@
                 </p>
                 <div class="menu other"></div>
             </form>
-        </sidebar>
+        </div>
         
         <div id="editor">
             <div id="title-bar">
@@ -93,25 +93,27 @@
                 <div id="canvas"></div>
                 
                 <form id="title">
+                    <label for="edit-title" class="title category">Title</label>
                     <input id="edit-title" class="title" name="game-title" type="text" placeholder="TYTUŁ">
-                    <select name="level" class="title category">
+                    <label for="level-select" class="title category">Level</label>
+                    <select id="level-select" name="level" class="title category">
                         <option id="easy" value="easy"></option>
                         <option id="medium" value="medium"></option>
                         <option id="hard" value="hard"></option>
                         <option id="suicide" value="suicide"></option>
                     </select>
-                    <input name="players" class="title category" type="text" placeholder="4">
-                    <label id="players_no" class="title category"></label>
+                    <input id="players-input" name="players" class="title category" type="text" placeholder="4">
+                    <label for="players-input" id="players_no" class="title category">players</label>
                 </form>
             </div>
 
             <form id="description">
-                <label id="edit-story" class="subtitle"></label>
-                <textarea class="text" name="story" rows="5" cols="80"></textarea>
-                <label id="edit-goals" class="subtitle"></label>
-                <textarea class="text" name="goals" rows="5" cols="80"></textarea>
-                <label id="edit-special" class="subtitle"></label>
-                <textarea class="text" name="special-rules" rows="5" cols="80"></textarea>
+                <label for="story-input" id="edit-story" class="subtitle">Story</label>
+                <textarea id="story-input" class="text" name="story" rows="5" cols="80"></textarea>
+                <label for="goals-input" id="edit-goals" class="subtitle">Goals</label>
+                <textarea id="goals-input" class="text" name="goals" rows="5" cols="80"></textarea>
+                <label for="special-rules-input" id="edit-special" class="subtitle">Special rules</label>
+                <textarea id="special-rules-input" class="text" name="special-rules" rows="5" cols="80"></textarea>
             </form>
 
             <div id="story" class="scenario story"></div>

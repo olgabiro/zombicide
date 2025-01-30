@@ -1,4 +1,4 @@
-var common = {
+const common = {
     doors: [
         {
             id: "red-doors",
@@ -102,8 +102,8 @@ var common = {
     ]
 };
 
-var actualCount = {};
-var maxCount = {};
+let actualCount = {};
+let maxCount = {};
 
 $.each(common, function (outerIndex, outerValue) {
    $.each(outerValue, function (innerIndex, innerValue) {

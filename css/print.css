@@ -7,7 +7,7 @@
         margin: 1.2cm;
     }
     
-    sidebar, .minitiles, form, button, .languages {
+    #sidebar, .miniTiles, form, button, .languages {
         display: none;
     }
     
