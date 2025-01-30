@@ -1,12 +1,12 @@
 $(document).ready(function () {
     "use strict";
-    
-    var parts = {
-            "part1" : "zombicide",
-            "part2" : "prison-outbreak",
-            "part3" : "rue-morgue"
-        };
-    
+
+    const parts = {
+        "part1": "zombicide",
+        "part2": "prison-outbreak",
+        "part3": "rue-morgue"
+    };
+
     $('#part1').attr("checked", true);
     $(".rue-morgue").hide();
     $(".prison-outbreak").hide();
@@ -16,7 +16,7 @@ $(document).ready(function () {
     $(".prison-outbreak div").addClass("prison-outbreak");
     
     $(".tiles :checkbox").change(function () {
-        var className = $(this).attr("id"),
+        const className = $(this).attr("id"),
             elements = $("." + parts[className]);
         if ($(this).is(":checked")) {
             elements.each(function () {
@@ -39,8 +39,8 @@ $(document).ready(function () {
     $("#sidebar .menu").hide().addClass("hidden");
     
     $("#sidebar p").click(function () {
-        var nextMenu = $(this).next();
-        var arrow = $(this).find("i");
+        const nextMenu = $(this).next();
+        const arrow = $(this).find("i");
         if (nextMenu.hasClass("hidden")) {
             arrow.removeClass("fa-caret-right");
             arrow.addClass("fa-caret-down");

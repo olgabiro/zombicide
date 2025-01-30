@@ -1,5 +1,5 @@
-var translation = {
-    "lang-en":  {
+const translation = {
+    "lang-en": {
         "hide-canvas": "Shrink board",
         "show-canvas": "Enlarge board",
         "print-button": "Print scenario",
@@ -23,7 +23,7 @@ var translation = {
         "header-needed": "Needed items",
         "used-tiles": "Used tiles"
     },
-    "lang-pl":  {
+    "lang-pl": {
         "hide-canvas": "Zmniejsz planszę",
         "show-canvas": "Powiększ planszę",
         "print-button": "Drukuj scenariusz",
@@ -73,11 +73,11 @@ var translation = {
     }
 };
 
-var lang = "lang-en";
+let lang = "lang-en";
 
 $(document).ready(function() {
-    $(".languages a").click(function(evt) {
-        var key = $(this).attr("id")
+    $(".languages a").click(function() {
+        const key = $(this).attr("id");
         lang = key;
         $.each(translation[key], function(id, val) {
            $("#" + id).text(val);
