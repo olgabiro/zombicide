@@ -149,10 +149,10 @@ $(document).ready(function () {
     });
 
     $.each(zombicide.tiles, function (ind, val) {
-        $(".miniTiles").append('<div class="zombicide ' + ind + '"></div>');
+        $(".miniTiles").append(`<div class="zombicide ${ind}"></div>`);
         $.each(val, function (index, value) {
             const object = createImageForMiniTile(value, "zombicide");
-            $(".miniTiles .zombicide." + ind).append(object);
+            $(`.miniTiles .zombicide.${ind}`).append(object);
         });
     });
 
@@ -184,10 +184,10 @@ $(document).ready(function () {
     });
 
     $.each(prison_outbreak.tiles, function (ind, val) {
-        $(".miniTiles").append('<div class="prison-outbreak ' + ind + '"></div>');
+        $(".miniTiles").append(`<div class="prison-outbreak ${ind}"></div>`);
         $.each(val, function (index, value) {
             const object = createImageForMiniTile(value, "prison-outbreak");
-            $(".miniTiles .prison-outbreak." + ind).append(object);
+            $(`.miniTiles .prison-outbreak.${ind}`).append(object);
         });
     });
 
@@ -224,10 +224,10 @@ $(document).ready(function () {
     });
 
     $.each(rue_morgue.tiles, function (ind, val) {
-        $(".miniTiles").append('<div class="rue-morgue ' + ind + '"></div>');
+        $(".miniTiles").append(`<div class="rue-morgue ${ind}"></div>`);
         $.each(val, function (index, value) {
             const object = createImageForMiniTile(value, "rue-morgue");
-            $(".miniTiles .rue-morgue." + ind).append(object);
+            $(`.miniTiles .rue-morgue.${ind}`).append(object);
         });
     });
 

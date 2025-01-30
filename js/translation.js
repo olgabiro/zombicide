@@ -80,7 +80,7 @@ $(document).ready(function() {
         const key = $(this).attr("id");
         lang = key;
         $.each(translation[key], function(id, val) {
-           $("#" + id).text(val);
+           $(`#${id}`).text(val);
         });
         $("#edit-title").attr("placeholder", translation[key]["game-title"]);
         $("#header-goals").text(translation[key]["edit-goals"].toUpperCase());

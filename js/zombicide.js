@@ -51,7 +51,7 @@ $(document).ready(function () {
             if (ui.draggable.hasClass("boardtile")) {
                 const name = ui.draggable.attr("id");
                 ui.draggable.remove();
-                $("#" + name).parent().show();
+                $(`#${name}`).parent().show();
                 updateBoard();
                 delete tiles[name];
             }
@@ -135,7 +135,7 @@ $(document).ready(function () {
             rotation[name] = 0;
         }
         rotation[name] = (rotation[name] + 90) % 360;
-        $(this).find("img").css("transform", "rotate(" + rotation[name] + "deg)");
+        $(this).find("img").css("transform", `rotate(${rotation[name]}deg)`);
     });
     
     $(window).resize(function () {
@@ -170,11 +170,11 @@ $(document).ready(function () {
             const scale = tileWidth / tileSize;
             const width = others[key].width * scale;
             const padding = parseInt($canvas.css("padding"));
-            $("#" + key + " img").width(width).height("auto");
+            $(`#${key} img`).width(width).height("auto");
 
             const left = (others[key].x * scale) + canvasPosition.left + padding;
             const top = (others[key].y * scale) + canvasPosition.top + padding;
-            $("#" + key).css("left",left).css("top", top).width(width).height("auto");
+            $(`#${key}`).css("left",left).css("top", top).width(width).height("auto");
         }
     }
     
@@ -267,7 +267,7 @@ $(document).ready(function () {
         
         $neededElements.append(ul);
 
-        let tilesList = "<p>" + translation[lang]["used-tiles"] + ": ";
+        let tilesList = `<p>${translation[lang]["used-tiles"]}: `;
         for (let tile in usedTiles) {
             tilesList += usedTiles[tile];
             tilesList += ", "

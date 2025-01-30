@@ -17,7 +17,7 @@ $(document).ready(function () {
     
     $(".tiles :checkbox").change(function () {
         const className = $(this).attr("id"),
-            elements = $("." + parts[className]);
+            elements = $(`.${parts[className]}`);
         if ($(this).is(":checked")) {
             elements.each(function () {
                 if (!$(this).hasClass("hidden")) {
