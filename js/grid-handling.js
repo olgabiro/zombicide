@@ -1,23 +1,23 @@
-function showGrid(tileSize, canvaCoords, canvaSize) {
+function showGrid(tileSize, canvasCoords, canvasSize) {
     let coords;
     hideGrid();
-    let xOffset = tileSize + canvaCoords.left;
-    while (xOffset < canvaCoords.left + canvaSize.width) {
+    let xOffset = tileSize + canvasCoords.left;
+    while (xOffset < canvasCoords.left + canvasSize.width) {
         coords = {
-            top: canvaCoords.top,
+            top: canvasCoords.top,
             left: xOffset,
-            width: canvaSize.height
+            length: canvasSize.height
         };
         drawLine(coords, "vertical");
         xOffset += tileSize;
     }
 
-    let yOffset = tileSize + canvaCoords.top;
-    while (yOffset < canvaCoords.top + canvaSize.height) {
+    let yOffset = tileSize + canvasCoords.top;
+    while (yOffset < canvasCoords.top + canvasSize.height) {
         coords = {
             top: yOffset,
-            left: canvaCoords.left,
-            width: canvaSize.width
+            left: canvasCoords.left,
+            length: canvasSize.width
         };
         drawLine(coords, "horizontal");
         yOffset += tileSize;
@@ -26,39 +26,39 @@ function showGrid(tileSize, canvaCoords, canvaSize) {
 
 function drawLine(coords, orientation) {
     const line = document.createElement('div');
-    $(line).addClass("gridline")
+    $(line).addClass("gridLine")
             .css("position", "absolute")
             .css("top", coords.top)
             .css("left", coords.left);
     if (orientation === "horizontal") {
-        $(line).css("border-bottom", "1px solid rgba(0, 0, 0, 0.25)").css("width", coords.width);
+        $(line).css("border-bottom", "1px solid rgba(0, 0, 0, 0.25)").css("width", coords.length);
     } else if (orientation === "vertical") {
-        $(line).css("border-left", "1px solid rgba(0, 0, 0, 0.25)").css("height", coords.width);
+        $(line).css("border-left", "1px solid rgba(0, 0, 0, 0.25)").css("height", coords.length);
     }
     $("body").append(line);
 }
 
 function hideGrid() {
-    $(".gridline").remove();
+    $(".gridLine").remove();
 }
 
-$(document).ready(function () {
-    const canva = $("#canvas");
-    const canvaCoords = canva.offset();
-    const canvaSize = {
-        width: canva.width(),
-        height: canva.height()
+$(document).ready(() => {
+    const canvas = $("#canvas");
+    const canvasCoords = canvas.offset();
+    const canvasSize = {
+        width: canvas.width(),
+        height: canvas.height()
     };
-    showGrid(tileSize, canvaCoords, canvaSize);
+    showGrid(tileSize, canvasCoords, canvasSize);
     
-    $(window).resize(function(evt) {
-        const canvaCoords = canva.offset();
-        const canvaSize = {
-            width: canva.width(),
-            height: canva.height()
+    $(window).resize(() => {
+        const canvasCoords = canvas.offset();
+        const canvasSize = {
+            width: canvas.width(),
+            height: canvas.height()
         };
-        if (canvaSize.width > 100) {
-            showGrid(tileSize, canvaCoords, canvaSize);
+        if (canvasSize.width > 100) {
+            showGrid(tileSize, canvasCoords, canvasSize);
         }
     })
 });

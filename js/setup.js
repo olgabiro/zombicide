@@ -26,7 +26,7 @@ $(document).ready(function () {
             });
         } else {
             elements.each(function () {
-                if ($(this).hasClass("on-board") || $(this).hasClass("boardtile")) {
+                if ($(this).hasClass("on-board") || $(this).hasClass("boardTile")) {
                     $(this).remove();
                 } else {
                     $(this).hide();

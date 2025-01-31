@@ -25,11 +25,11 @@ $(document).ready(function () {
     let $canvas = $("#canvas");
 
     function updateBoard(size=tileSize) {
-        $("#canvas .draggable").not(".boardtile").each(function () {
+        $("#canvas .draggable").not(".boardTile").each(function () {
             $(this).appendTo("#canvas");
         });
         
-        $("#canvas .boardtile").each(function (index) {
+        $("#canvas .boardTile").each(function (index) {
             const canvasWidth = parseInt($canvas.css("width")),
                 rowLength = canvasWidth - (canvasWidth % size),
                 baseX = (index * size) % rowLength,
@@ -48,7 +48,7 @@ $(document).ready(function () {
     
     $(".miniTiles").droppable({
         drop: function (event, ui) {
-            if (ui.draggable.hasClass("boardtile")) {
+            if (ui.draggable.hasClass("boardTile")) {
                 const name = ui.draggable.attr("id");
                 ui.draggable.remove();
                 $(`#${name}`).parent().show();
@@ -109,7 +109,7 @@ $(document).ready(function () {
                     };
                     
                 } else {
-                    ui.draggable.clone().addClass("boardtile").appendTo($(this));
+                    ui.draggable.clone().addClass("boardTile").appendTo($(this));
                     ui.draggable.parent().hide();
                 }
                 $(".draggable").draggable({
@@ -162,8 +162,8 @@ $(document).ready(function () {
     }
     
     function scaleCanvas(canvasPosition, tileWidth) {
-        $('.boardtile img').css("width", tileWidth).css("height", tileWidth);
-        $('.boardtile').css("width", tileWidth).css("height", tileWidth);
+        $('.boardTile img').css("width", tileWidth).css("height", tileWidth);
+        $('.boardTile').css("width", tileWidth).css("height", tileWidth);
         updateBoard(tileWidth);
         
         for (let key in others) {

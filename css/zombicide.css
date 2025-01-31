@@ -203,14 +203,14 @@ form {
     margin-right: 2px;
 }
 
-.boardtile {
+.boardTile {
     background-color: lightgray;
     margin: 0;
     width: 160px;
     height: 160px;
 }
 
-.boardtile img {
+.boardTile img {
     width: 160px;
     height: 160px;
 }
