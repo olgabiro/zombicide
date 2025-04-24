@@ -1,4 +1,5 @@
 # zombicide
+
 This is an online scenario editor for [Zombicide](https://zombicide.com/en/).
 
 It's written in jQuery, without any additional frameworks. 
@@ -19,3 +20,4 @@ After creating you board, you can shrink it by pressing the button on the left (
 Fill the fields for the title, difficulty, number of players, backstory and objectives. When you're done, click on the button
 in the top left corner to print or download the created scenario.
 
+![GitHub stats](https://github-readme-stats.vercel.app/api/pin?username=olgabiro&repo=zombicide&theme=ambient_gradient)
