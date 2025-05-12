@@ -1,23 +1,29 @@
-# zombicide
+# Zombicide
 
-This is an online scenario editor for [Zombicide](https://zombicide.com/en/).
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
-It's written in jQuery, without any additional frameworks. 
+## Development server
 
-As for now, the supported game editions are: Zombicide, Prison Outbreak and Rue Morgue.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Since there's no backend, you can print or download your scenario, but it won't be saved anywhere. 
+## Code scaffolding
 
-## How to use editor
-On the left panel you can choose which edition you want to use; many editions may be used at the same time.
-On the top of the page you can find tiles that you can drag and drop on the canvas area. You can always change your mind by dragging
-the tiles back to the tile panel.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-If you want to place additional elements (e.g. doors), choose the right category from the menu on the left and drag the chosen item
-on your board.
+## Build
 
-After creating you board, you can shrink it by pressing the button on the left (or just scroll down to the text form). 
-Fill the fields for the title, difficulty, number of players, backstory and objectives. When you're done, click on the button
-in the top left corner to print or download the created scenario.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ![GitHub stats](https://github-readme-stats.vercel.app/api/pin?username=olgabiro&repo=zombicide&theme=ambient_gradient)

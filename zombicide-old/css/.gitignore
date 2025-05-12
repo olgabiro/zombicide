@@ -1,0 +1,5 @@
+*.txt
+*.py
+*.kra
+
+../../.idea/vcs.xml
